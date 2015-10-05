@@ -3,7 +3,7 @@
 <head>
   <title>Project634</title>
   <script src="https://maps.googleapis.com/maps/api/js"></script>
-  <script src="javascript/index.js"></script>
+  <script src="index.js"></script>
   <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
@@ -14,10 +14,11 @@
 // then click the URL that is emitted to the Output tab of the console
 echo "My first PHP script!";
 ?>
+<br>
 <button type="button"
-onclick="document.getElementById('demo').innerHTML = DateFunc()">
-Click me to display Date and Time.</button>
-
+onclick="MoveMap(0.01,-0.01)">
+Click me</button>
+<!--onclick="document.getElementById('demo').innerHTML = DateFunc()"> -->
 <p id="demo"></p>
   
 
