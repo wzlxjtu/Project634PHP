@@ -8,13 +8,22 @@
 </head>
 
 <body>
+  
+
 <?php
 // A simple web site in Cloud9 that runs through Apache
 // Press the 'Run' button on the top to start the web server,
 // then click the URL that is emitted to the Output tab of the console
-echo "My first PHP script!";
+  include 'form.php';
+  echo '<br>';
+  echo $_GET["Name"];
+  echo '<br>';
+  echo $_GET["Lots"];
 ?>
+
 <br>
+
+
 <button type="button"
 onclick="MoveMap(0.01,-0.01)">
 Click me</button>

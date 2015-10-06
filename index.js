@@ -1,6 +1,7 @@
 
 var map, google;
 google.maps.event.addDomListener(window, 'load', initialize);
+
 function DateFunc(){
     return Date();
 }
