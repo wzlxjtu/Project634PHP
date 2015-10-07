@@ -1,10 +1,8 @@
 
+// Google Maps functions
 var map, google;
 google.maps.event.addDomListener(window, 'load', initialize);
 
-function DateFunc(){
-    return Date();
-}
 function initialize() {
     var mapCanvas = document.getElementById('map');
     var mapOptions = {
@@ -23,3 +21,4 @@ function MoveMap(x,y){
     //window.alert(pos1);
     map.panTo(pos);
 }
+
