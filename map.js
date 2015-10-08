@@ -15,10 +15,17 @@ function initialize() {
 function CurrentLatlng(){
     return map.getCenter();
 }
-function MoveMap(x,y){
+function MoveMap(){
+    var degree = parseFloat(FormData.degree);
+    if (isNaN(degree))
+        degree = 0.01;
+    var x = degree;
+    var y = -degree;
     var current_pos = CurrentLatlng ();
-    var pos = new google.maps.LatLng(current_pos.lat()+x,current_pos.lng()+y,true);
+    var new_pos = new google.maps.LatLng(current_pos.lat()+x,current_pos.lng()+y,true);
     //window.alert(pos1);
-    map.panTo(pos);
+    //document.getElementById("showserver").innerHTML = x;
+    map.panTo(new_pos);
+    
 }
 

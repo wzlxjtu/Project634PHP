@@ -3,11 +3,15 @@
 <?php
 
 //Receiving the data from the client 
-$name = $_GET['Name'];
+$building = $_GET['Building'];
 $lots = $_GET['Lots'];
-//echo the data received from the client
-echo "Name = $name";
-echo "<br>Lots = $lots";
+$degree = $_GET['Degree'];
 
+//echo the data received from the client
+//echo "Building = $building";
+//echo "<br>Lots = $lots";
+
+// echo in the JSON format
+echo '{"building": "'. $building .'","lots": "' . $lots .'","degree": "' . $degree . '"}';
 
 ?>
