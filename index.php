@@ -9,7 +9,7 @@
   <script src="map.js"></script>
 
   <link rel="stylesheet" type="text/css" href="display.css">
-  <div class="title">Texas A&M University Parking Suggestions</div>
+  <div class="top_layout">Texas A&M University Parking Suggestions</div>
 </head>
 
 <body>
