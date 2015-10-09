@@ -1,0 +1,53 @@
+body
+    {
+    background: #500000;
+    }
+#map
+    {
+        width: 700px;
+        height: 500px;
+        background-color: #CCC;
+        margin: 0px;
+		padding: 0px;
+    }
+.maroon
+	{
+	    width: 100%;
+        height: 100%;
+		margin: 0px;
+		padding: 20px;
+		background: #500000;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 15pt;
+		font-weight: 400;
+		color: #FFFFFF;
+	}
+.title {
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+    color: #500000;
+    background-color: #FFFFFF;
+    font-size: 30pt;
+    font-weight: 700;
+}
+.BigButton {
+	background-color:transparent;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:2px solid #FFFFFF;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:12px;
+	font-weight:bold;
+}
+.BigButton:hover {
+	background-color: #CCCC99;
+}
+.BigButton:active {
+	position:relative;
+	top:1px;
+}

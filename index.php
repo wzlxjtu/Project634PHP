@@ -8,30 +8,26 @@
   
   <script src="map.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="display.css">
+  <div class="title">Texas A&M University Parking Suggestions</div>
 </head>
 
 <body>
+  
   
 
 <?php
 // A simple web site in Cloud9 that runs through Apache
 // Press the 'Run' button on the top to start the web server,
 // then click the URL that is emitted to the Output tab of the console
-  include 'form.php';
+  include 'display.php';
   echo '<br>';
 
 ?>
 
-
-
-<p id="demo"></p>
-<button type="button"
-onclick="MoveMap()">
-Click me</button>
 <!--onclick="document.getElementById('demo').innerHTML = DateFunc()"> -->
 
-<div id="map"></div>
+
 
 </body>
 </html>
