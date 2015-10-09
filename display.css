@@ -41,7 +41,7 @@ body
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Trebuchet MS;
-	font-size:12px;
+	font-size:20px;
 	font-weight:bold;
 }
 .BigButton:hover {
@@ -50,4 +50,31 @@ body
 .BigButton:active {
 	position:relative;
 	top:1px;
+}
+.BigSelect {
+    border-radius: 3px;
+    overflow: hidden;
+    background: #FFFFFF;
+    font-size:20px;
+}
+
+.BigSelect select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.BigSelect select:focus {
+    outline: none;
+}
+
+.BigInput
+{
+    height: 30px;
+    width: 80px;
+    font-size: 28px
 }

@@ -3,20 +3,20 @@
 <script src="form.js"></script>
 <form action="" method="get">
         Building:
-        <select id="Building" name="Building" value="<?php echo $_GET["Building"];?>">
+        <select id="Building" name="Building" class='BigSelect' value="<?php echo $_GET["Building"];?>">
           <option value="HRBB">HRBB</option>
           <option value="Evans">Evans</option>
           <option value="Annex">Annex</option>
         </select>
         Lot Number:
-        <input list="Lots" id="Lots" name="Lots" value="<?php echo $_GET["Lots"];?>">
+        <input list="Lots" id="Lots" name="Lots" class='BigInput' value="<?php echo $_GET["Lots"];?>">
           <datalist>
             <option value="47">
             <option value="50">
             <option value="51">
           </datalist>
         Degree:
-        <input type="text" id="Degree" name="Degree" value="<?php echo $_GET["Degree"];?>">
+        <input type="text" id="Degree" name="Degree" class='BigInput' value="<?php echo $_GET["Degree"];?>">
         <br>
         <input id="submit" type="button" class='BigButton' value="Submit" onclick="MakeRequest('reasoning.php')">
 </form>
