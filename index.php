@@ -6,7 +6,6 @@
   <script src="global.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble.js"></script>
   <script src="map.js"></script>
 </head>
 
