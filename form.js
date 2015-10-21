@@ -24,9 +24,9 @@ function process_form()
 {
     var values = 'Building=' + $('#Building').val() +
         '&Lots=' + $('#Lots').val() + '&Degree=' + $('#Degree').val();
-    if (isNaN($('#Lots').val()))
+    if (isNaN($('#Degree').val()))
     {
-        alert('Lots value must be a number!');
+        alert('Degree value must be a number!');
         return false;
     }
     return values;
@@ -39,6 +39,7 @@ function httpResponse(httpRequest) {
 			FormData = JSON.parse(httpRequest.responseText);
 			document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
 			    "<br>Lots: " + FormData.lots + "<br>Degree:" + FormData.degree;
+			    ShowLot(FormData.lots);
         } else {
             alert('There was a problem with the request. '+ httpRequest.status);
 

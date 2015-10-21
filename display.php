@@ -1,6 +1,7 @@
 
 <script src="form.js"></script>
 
+<div class="top_layout">Texas A&M University Parking Suggestions</div>
 
 <div class = 'middle_layout'>
   <form action="" method="get">
@@ -11,12 +12,11 @@
             <option value="Annex">Annex</option>
           </select>
           Lot Number:
-          <input list="Lots" id="Lots" name="Lots" class='BigInput' value="<?php echo $_GET["Lots"];?>">
-            <datalist>
-              <option value="47">
-              <option value="50">
-              <option value="51">
-            </datalist>
+          <select id="Lots" name="Lots" class='BigSelect' value="<?php echo $_GET["Lots"];?>">
+              <option value="50">50</option>
+              <option value="51">51</option>
+              <option value="100">100</option>
+          </select>
           Degree:
           <input type="text" id="Degree" name="Degree" class='BigInput' value="<?php echo $_GET["Degree"];?>">
           <br>
@@ -24,7 +24,8 @@
   </form>
   <br>
   <div id="showserver">This will change becuase of ajax</div>
-  <button type="button" onclick="MoveMap()" class='BigButton'>Click</button>
+  <button type="button" onclick="ResetMap()" class='BigButton'>Reset</button>
+  <button type="button" onclick="GetMyPosition()" class='BigButton'>GetMyPosition</button>
   <br><br>
   <div id="map"></div>
 </div>
