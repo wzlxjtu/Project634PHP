@@ -11,21 +11,20 @@
             <option value="Evans">Evans</option>
             <option value="Annex">Annex</option>
           </select>
+          <br><br>
           Lot Number:
           <select id="Lots" name="Lots" class='BigSelect' value="<?php echo $_GET["Lots"];?>">
               <option value="50">50</option>
               <option value="51">51</option>
               <option value="100">100</option>
           </select>
-          Degree:
-          <input type="text" id="Degree" name="Degree" class='BigInput' value="<?php echo $_GET["Degree"];?>">
           <br>
-          <input id="submit" type="button" class='BigButton' value="Submit" onclick="MakeRequest('reasoning.php')">
+          <input id="submit" type="button" class='BigButton' value="Submit" onclick="SubmitForm('reasoning.php')">
   </form>
   <br>
   <div id="showserver">This will change becuase of ajax</div>
   <button type="button" onclick="ResetMap()" class='BigButton'>Reset</button>
-  <button type="button" onclick="GetMyPosition()" class='BigButton'>GetMyPosition</button>
+  <div id="RoutePanel"></div>
   <br><br>
   <div id="map"></div>
 </div>
