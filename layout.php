@@ -1,3 +1,4 @@
+<!-- This is just a test of layout -->
 <div id="wrapper">
     <div id="header">
         <div id="header-content">
