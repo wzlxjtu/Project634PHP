@@ -23,6 +23,11 @@
           <option value="Evans">Evans</option>
           <option value="Annex">Annex</option>
         </select>
+        <div id="building_recommendation">
+          <a href="#">HRBB</a>
+          <a href="#">ETB</a>
+          <a href="#">FERM</a>
+        </div>
         <input id="submit" type="button" class='btn' value="Submit" onclick="SubmitForm('reasoning.php')">
       </form>
     </div>

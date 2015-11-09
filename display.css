@@ -8,6 +8,16 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #80CBC4;
+    text-decoration: underline;
+}
+
 #wrapper {
     min-height: 100vh;
     height: auto !important;
@@ -91,7 +101,7 @@ aside input {
     -moz-border-radius: 5;
     border-radius: 5px;
     padding: 3px 10px 3px 10px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
     text-decoration: none;
     line-height: 1;
@@ -118,6 +128,15 @@ aside .btn:hover {
     color: white;
     background: #80CBC4;
     border: solid #80CBC4 1px;
+}
+
+#building_recommendation {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+#building_recommendation a {
+    margin-right: 10px;
 }
 
 section {
