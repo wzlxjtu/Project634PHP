@@ -18,6 +18,23 @@ a:hover {
     text-decoration: underline;
 }
 
+h1 {
+    font-size: 16px;
+    color: #80CBC4;
+}
+
+h2 {
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
 #wrapper {
     min-height: 100vh;
     height: auto !important;
@@ -89,6 +106,7 @@ aside {
 
 aside #form {
     width: 360px;
+    overflow: hidden;
 }
 
 aside select,
@@ -101,7 +119,7 @@ aside input {
     -moz-border-radius: 5;
     border-radius: 5px;
     padding: 3px 10px 3px 10px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     text-decoration: none;
     line-height: 1;
@@ -131,12 +149,77 @@ aside .btn:hover {
 }
 
 #building_recommendation {
-    font-size: 12px;
+    font-size: 14px;
     padding-bottom: 10px;
 }
 
 #building_recommendation a {
     margin-right: 10px;
+}
+
+.parking_option {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.parking_option .parking_lot {
+    overflow: hidden;
+}
+
+.parking_option .parking_lot .title {
+    float: left;
+}
+
+.parking_option .parking_lot .icons {
+    float: right;
+}
+
+.parking_option .time .to_parking_lot {
+    float: left;
+}
+
+.parking_option .time .to_building {
+    float: right;
+}
+
+#legend {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#time_icons {
+   overflow: hidden;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#properties_icons {
+   overflow: hidden;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#parking_lot_icon {
+    float: left;
+}
+
+#building_icon {
+    float: left;
+}
+
+#well_lit_icon {
+    float: left;
+}
+
+#easy_exit_icon {
+    float: left;
+}
+
+#easy_parking_icon {
+    float: right;
 }
 
 section {
