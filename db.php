@@ -1,20 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Database Mangement</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
 <?php
+echo("<h2>Hello World</h2>");
 /* 
 
----- install mongodb driver 
+---- 1.install mongodb driver 
 
 
 sudo apt-get update
 sudo apt-get install php5-dev php5-cli php-pear -y
 sudo pecl install mongo
 
----- change php.ini file
+---- 2.change php.ini file
 
 add below in php.ini
 
 extension=mongo.so
 
------ restart apache
+----- 3.restart apache
 
 sudo /etc/init.d/apache2 restart
 
@@ -22,26 +30,58 @@ sudo /etc/init.d/apache2 restart
 https://docs.c9.io/docs/setting-up-mongodb
 https://docs.c9.io/docs/setup-a-database
 
+http://www.sitepoint.com/building-simple-blog-app-mongodb-php/
+
+----- mogodb documentation
+https://docs.mongodb.org/manual/?_ga=1.77802384.540156671.1447120948
 */
 
 // connect
-$m = new MongoClient( "mongodb://ohnarya-project634php-2006741:27017" );
-//$m = new MongoClient("mongodb:host:port");
+/*
+$./mongod(enter)
+checkout dbpath
+
+$m = new MongoClient("mongodb:host:port");
+*/
+//$m = new MongoClient( "mongodb://ohnarya-project634php-2006741:27017" );
+
 
 // select a database
 // $db = $m->project634;
 
-$db = $m->test;
-
-// select a collection (analogous to a relational database's table)
-$collection = $db->book;
-
-// find everything in the collection
-$cursor = $collection->find();
-
-// iterate through the results
-foreach ($cursor as $document) {
-    echo $document["title"] . "\n";
-}
 
 ?>
+
+<button id='truncatetable'>truncate collections.....</button>
+<button id='inserttable'>insert collections.....</button>
+<p id="notify1"></p>
+<p id="notify2"></p>
+
+
+<script>
+$(document).ready(function() {
+    $("#truncatetable").on('click', function(){
+        document.getElementById("notify1").innerHTML = "truncating collections........";
+        $.ajax({
+               url: './migrate.php?mode=t',
+               dataType: 'json',
+               success: function(data){
+                   alert(data['id']);
+                    $("#notify2").html( "collections were truncated.");
+               }
+            });
+    });
+    
+    $("#inserttable").on('click', function(){
+        document.getElementById("notify1").innerHTML = "inserting collections........";
+        $.ajax({
+               url: './migrate.php?mode=i',
+               dataType: 'json',
+               success: function(data){
+                   alert(data['id']);
+                    $("#notify2").html( "collections were inserted.");
+               }
+            });
+    });    
+});    
+</script>

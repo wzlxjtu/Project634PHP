@@ -5,7 +5,6 @@
   <script src="global.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  
   <script src="map.js"></script>
 
   <link rel="stylesheet" type="text/css" href="display.css">
@@ -13,8 +12,6 @@
 </head>
 
 <body>
-  
-  
 
 <?php
 // A simple web site in Cloud9 that runs through Apache . this is comment for test in develop
