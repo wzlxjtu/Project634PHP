@@ -1,5 +1,5 @@
 <?php
-$usercollections = ['parkingpermit','$building','$user','$preference'];
+$usercollections = ['parkingpermit','building','user','preference'];
 
 $parkingpermit = array(
                     ['_id'=>'50','name'=>'parking lot 50','lat'=>'','lng'=>'','night'=>true,'summer'=>true, 'soccer'=>false, 'construction'=>false,'active'=>true],
