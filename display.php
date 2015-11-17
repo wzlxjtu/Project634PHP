@@ -17,7 +17,7 @@
           <option value="51">Parking Permit Lot 51</option>
           <option value="100">Parking Permit Lot 100</option>
         </select>
-        <input type="text" id="date">
+        <input type="text" id="datepicker" />
         <select id="Building" name="Building" value="<?php echo $_GET["Building"];?>">
           <option value="HRBB">HRBB</option>
           <option value="Evans">Evans</option>
@@ -143,6 +143,7 @@
     <div id="RoutePanel">
     </div>
     -->
+    
   </aside>
   <section>
     <div id="map">
