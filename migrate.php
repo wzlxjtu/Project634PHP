@@ -15,14 +15,15 @@ if($_GET['mode']=="t"){
 }else if(isset($_GET['mode']) && $_GET['mode']=="i"){
     include_once('./_seed.php');
     
-    // $collection = $db->selectCollection("parkingpermit");
-    // $collection->batchInsert($parkingpermit);
-    foreach($usercollections as $usercollection){
-        // 
-        $collection = $db->selectCollection($usercollection);
-        $collection->batchInsert('$'.$usercollection);
-    }
+    $collection = $db->selectCollection("parkinglot");
+    $collection->batchInsert($parkinglot);
     
+    $collection = $db->selectCollection("building");
+    $collection->batchInsert($building);    
+
+    $collection = $db->selectCollection("user");
+    $collection->batchInsert($user);
+
      echo json_encode(['id'=>'success','mode'=>$_GET['mode']]);
 }else{
     echo json_encode(['id'=>'fail','mode'=>$_GET['mode']]);
