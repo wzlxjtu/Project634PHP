@@ -67,7 +67,7 @@ $(document).ready(function() {
                url: './migrate.php?mode=t',
                dataType: 'json',
                success: function(data){
-                   //alert(data['id']);
+                   alert(data['id']);
                     $("#notify2").html( "collections were truncated.");
                }
             });
@@ -87,3 +87,26 @@ $(document).ready(function() {
     });    
 });    
 </script>
+
+<?php
+
+$m  = new MongoClient( "mongodb://ohnarya-project634php-2006741:27017" );  /*connect*/
+$db = $m->selectDB("project634");  /*select DB*/
+$collection = $db->selectCollection("user"); /*select collection(table)*/
+
+if($collection != null){
+    
+    $q = array('id' => '1');   // query select * from user where 'id' =1;
+    
+    $curser = $collection->find($q); /*fetch data from the table above*/
+    
+    if($curser!=null)
+        echo "<p>Examples: select user '1''s history </p>";
+
+    foreach($curser as $user){
+        print_r($user['history']['1']);  
+    }
+}
+
+?>
+

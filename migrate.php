@@ -6,6 +6,7 @@ $db = $m->selectDB("project634");
 if($_GET['mode']=="t"){
     $collections = $db->listCollections();
     foreach ($collections as $collection) {
+            echo $collection +"<br>";
             $collection->remove();
         }
     
@@ -23,6 +24,7 @@ if($_GET['mode']=="t"){
 
     $collection = $db->selectCollection("user");
     $collection->batchInsert($user);
+
 
      echo json_encode(['id'=>'success','mode'=>$_GET['mode']]);
 }else{

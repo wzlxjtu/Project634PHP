@@ -1,5 +1,5 @@
 <?php
-$usercollections = ['parkinglot','building','user','preference'];
+// $usercollections = ['parkinglot','building','user','preference'];
 
 $parkinglot = array(
                     ['id'     =>'50','name'   =>'parking lot 50','lat'     =>'30.623746','lng'         =>'-96.337394',
@@ -22,7 +22,7 @@ $building = array(
             );    
     
 $user = array(
-            ['id'=>'1','userid'=>'user1','password'=>'user1','history'   =>['1'=>['50','47','51'],
+            ['id'=>'1','userid'=>'user1','password'=>'user1','history'   =>['1'=>['50','100','51'],
                                                                             '2'=>['50']
                                                                            ],
                                                              'active'=>true],
