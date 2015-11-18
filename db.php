@@ -6,7 +6,7 @@
 </head>
 
 <?php
-echo("<h2>Hello World</h2>");
+echo("<h2>Database Management</h2>");
 /* 
 
 ---- 1.install mongodb driver 
@@ -62,11 +62,12 @@ $m = new MongoClient("mongodb:host:port");
 $(document).ready(function() {
     $("#truncatetable").on('click', function(){
         document.getElementById("notify1").innerHTML = "truncating collections........";
+        document.getElementById("notify2").innerHTML = "";
         $.ajax({
                url: './migrate.php?mode=t',
                dataType: 'json',
                success: function(data){
-                   alert(data['id']);
+                   //alert(data['id']);
                     $("#notify2").html( "collections were truncated.");
                }
             });
@@ -74,11 +75,12 @@ $(document).ready(function() {
     
     $("#inserttable").on('click', function(){
         document.getElementById("notify1").innerHTML = "inserting collections........";
+        document.getElementById("notify2").innerHTML = "";
         $.ajax({
                url: './migrate.php?mode=i',
                dataType: 'json',
                success: function(data){
-                   alert(data['id']);
+                   //alert(data['id']);
                     $("#notify2").html( "collections were inserted.");
                }
             });
