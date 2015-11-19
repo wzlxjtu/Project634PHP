@@ -26,6 +26,17 @@ extension=mongo.so
 
 sudo /etc/init.d/apache2 restart
 
+----- 4. run Mongo db
+
+$ mkdir data      // where data are stored
+$ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+$ chmod a+x mongod 
+
+$ ./mongod
+
+----- 5. run mongodb Client
+$ mongo
+
 ---- reference
 https://docs.c9.io/docs/setting-up-mongodb
 https://docs.c9.io/docs/setup-a-database
@@ -90,7 +101,7 @@ $(document).ready(function() {
 
 <?php
 
-$m  = new MongoClient( "mongodb://ohnarya-project634php-2006741:27017" );  /*connect*/
+$m  = new MongoClient( "mongodb://ohnarya-project634php-2174620:27017" );  /*connect*/
 $db = $m->selectDB("project634");  /*select DB*/
 $collection = $db->selectCollection("user"); /*select collection(table)*/
 

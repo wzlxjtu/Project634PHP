@@ -32,9 +32,4 @@ $user = array(
         );
 
     
-// $preference = array(
-//                 ['id'=>'1','description'=>'closest','active'=>true],
-//                 ['id'=>'2','description'=>'popular','active'=>true],
-//                 ['id'=>'3','description'=>'history','active'=>true],
-//               );    
 ?>
