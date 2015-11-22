@@ -136,6 +136,23 @@ aside input {
     margin-top: 0px;
 }
 
+aside #Hours, aside #Meridiems, aside #datepicker {
+    width: 31.45%;
+}
+
+aside #datepicker {
+    padding-bottom: 4px;
+    margin-right: 10px;
+}
+
+aside #Hours, aside #Meridiems {
+    margin-right: 10px;
+}
+
+aside #Meridiems {
+    margin-right: 0px;
+}
+
 aside .btn {
     color: #80CBC4;
     background: white;

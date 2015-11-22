@@ -17,7 +17,44 @@
           <option value="51">Parking Permit Lot 51</option>
           <option value="100">Parking Permit Lot 100</option>
         </select>
-        <input type="text" id="datepicker" />
+          <?php
+          
+          date_default_timezone_set('America/Chicago');
+          
+          $current_date = date('m/d/Y', time());
+          
+          echo "<input type='text' id='datepicker' value='$current_date' />";
+          
+          echo "<select id='Hours' name='Hours'>";
+          for ($i = 1; $i <= 12; $i++) {
+            if (date ('g', time()) == $i) {
+              $selected = " selected";
+            } else {
+              $selected = "";
+            }
+            
+            echo "<option value='$i'$selected>$i</option>";
+          }
+          
+          echo "</select>";
+          
+          echo "<select id='Meridiems' name='Meridiems'>";
+          
+          $meridiems = array("AM", "PM");
+          
+          for ($i = 0; $i < 2; $i++) {
+            $meridiem = $meridiems[$i];
+            if (date('A', time()) == $meridiem) {
+              $selected = " selected";
+            } else {
+              $selected = "";
+            }
+            
+            echo "<option value='$meridiems[$i]'$selected>$meridiems[$i]</option>";
+          }
+          
+          echo "</select>";
+          ?>
         <select id="Building" name="Building" value="<?php echo $_GET["Building"];?>">
           <option value="HRBB">HRBB</option>
           <option value="Evans">Evans</option>
