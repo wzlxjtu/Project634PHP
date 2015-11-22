@@ -22,9 +22,9 @@ function ReasoningResponse(ReasoningRequest) {
     if (ReasoningRequest.readyState == 4 && ReasoningRequest.status == 200) {
 			//document.getElementById("showserver").innerHTML = httpRequest.responseText;
 			var FormData = JSON.parse(ReasoningRequest.responseText);
-			document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
-			    "<br>Lots: " + FormData.lots;
+			//document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
+			//    "<br>Lots: " + FormData.lots;
 			ResetMap();
-			CalcRoute(FormData.lots);
+			CalcRoute(FormData.Building);
     }
 }
