@@ -57,8 +57,8 @@
           ?>
         <select id="Building" name="Building" value="<?php echo $_GET["Building"];?>">
           <option value="HRBB">HRBB</option>
+          <option value="ETB">ETB</option>
           <option value="Evans">Evans</option>
-          <option value="Annex">Annex</option>
         </select>
         <div id="building_recommendation">
           <a href="#">HRBB</a>
@@ -84,12 +84,12 @@
       
       -->
     
-    <div class="parking_option">
+    <div class="parking_option" id = 'SWT'>
       <h1><i class="fa fa-clock-o fa-lg"></i> Shortest Walking Time</h1>
       <div class="parking_lot">
-        <div class="title">
+        <div class="title" id = 'SWT_text'>
           <h2>
-            <a href="#">Parking Lot 21</a>
+            <a href="#">Parking Lot #</a>
           </h2>
         </div>
         <div class="icons">
@@ -101,16 +101,16 @@
       <div class="description">
         <p>Numbered parking permit required</p>
       </div>
-      <div class="time">
+      <div class="time" id = 'STW_drive'>
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i> 1 h 7 min (43 miles)</p>
+          <p><i class="fa fa-car"></i> ? h ? min (? miles)</p>
         </div>
-        <div class="to_building">
-          <p><i class="fa fa-child"></i> 8 min (0.4 mile)</p>
+        <div class="to_building" id = 'STW_walk'>
+          <p><i class="fa fa-child"></i> ? min (? mile)</p>
         </div>
       </div>
     </div>
-    <div class="parking_option">
+    <div class="parking_option" id = 'MOU'>
       <h1><i class="fa fa-history fa-lg"></i> Most Often Used</h1>
       <div class="parking_lot">
         <div class="title">
@@ -136,7 +136,7 @@
         </div>
       </div>
     </div>
-        <div class="parking_option">
+        <div class="parking_option" id = 'PP'>
       <h1><i class="fa fa-heart fa-lg"></i> Preference Parking</h1>
       <div class="parking_lot">
         <div class="title">
