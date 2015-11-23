@@ -5,6 +5,11 @@
 //Receiving the data from the client 
 $Building = $_GET['Building'];
 $Lots = $_GET['Lots'];
+$timeHour = $_GET['Hours'];
+$time_AM_PM = $_GET['Meridiems'];
+$date = $_GET['Date'];
+
+$tempLotList = array[];
 
 //echo the data received from the client
 //echo "Building = $building";
@@ -14,13 +19,10 @@ $Lots = $_GET['Lots'];
 echo '{"Building": "'. $Building .'","Lots": "' . $Lots .'"}';
 
 //Retrieving lot corresponding to permit
-$id = $lots;
-$permit_lot = $db::findOne(array('_id' => new MongoID($id)));
-echo '{"name":" '. $name .'"}'; 
-
-/*Check time of day.
+$tempLotList[] = db.parkinglot.find({$id: {$eq: $Lots}});
+/*Check time of day.    
     If after 4pm, but before 6am: retrieve WCG record and all "night" parking lots.
-    Else if after 5pm, but before 6am: retrieve all "night" parking lots.
+    Elseif after 5pm, but before 6am: retrieve all "night" parking lots.
     Else: 
       Check day of week.
         If Sat/Sun: retrieve "night" records and WCG.
@@ -32,6 +34,28 @@ echo '{"name":" '. $name .'"}';
               Else: ??????? Where can they park during the day/school year with their permit???
 */
 
+if(($timeHour >= 4 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
+{
+    $tempLotList[] = db.parkinglot.find({$id: {$eq: "WCG"}});
+    $tempLotList[] = db.parkinglot.find({$night : {$eq: true}});
+
+}
+elseif(($timeHour >= 5 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
+{
+    $tempLotList[] = db.parkinglot.find({$night : {$eq: true}});
+}
+else
+{
+    $weekend = date('w', strtotime($date));
+    if($weekend == 0 || $weekend == 6)
+    {
+        $tempLotList[] = db.parkinglot.find({$night : {$eq: true}});
+    }
+    else
+    {
+            
+    }
+}
 /* 
 Pass entire list to ?? to determine shortest walking time.
 */
