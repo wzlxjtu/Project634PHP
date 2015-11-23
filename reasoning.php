@@ -9,7 +9,7 @@ $timeHour = $_GET['Hours'];
 $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
 
-$tempLotList = array[];
+$tempLotList = array();
 
 //echo the data received from the client
 //echo "Building = $building";
@@ -19,7 +19,10 @@ $tempLotList = array[];
 echo '{"Building": "'. $Building .'","Lots": "' . $Lots .'"}';
 
 //Retrieving lot corresponding to permit
-$tempLotList[] = db.parkinglot.find({$id: {$eq: $Lots}});
+
+$lotQuery = array('id' == $Lots);
+$tempLotList[] = $db->$collectionLots->find($lotQuery);
+
 /*Check time of day.    
     If after 4pm, but before 6am: retrieve WCG record and all "night" parking lots.
     Elseif after 5pm, but before 6am: retrieve all "night" parking lots.
@@ -36,20 +39,24 @@ $tempLotList[] = db.parkinglot.find({$id: {$eq: $Lots}});
 
 if(($timeHour >= 4 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
 {
-    $tempLotList[] = db.parkinglot.find({$id: {$eq: "WCG"}});
-    $tempLotList[] = db.parkinglot.find({$night : {$eq: true}});
+    $lotQuery = array('id' == 'WCG');
+    $tempLotList[] = $db->$collectionLots->find($lotQuery);
+    $lotQuery = array('night' == true);
+    $tempLotList[] = $db.$collectionLots.find($lotQuery);
 
 }
 elseif(($timeHour >= 5 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
 {
-    $tempLotList[] = db.parkinglot.find({$night : {$eq: true}});
+    $lotQuery = array('night' == true);
+    $tempLotList[] = $db.$collectionLots.find($lotQuery);
 }
 else
 {
     $weekend = date('w', strtotime($date));
     if($weekend == 0 || $weekend == 6)
     {
-        $tempLotList[] = db.parkinglot.find({$night : {$eq: true}});
+        $lotQuery = array('night' == true);
+        $tempLotList[] = $db.$collectionLots.find($lotQuery);
     }
     else
     {
