@@ -4,7 +4,7 @@ require 'head.php';
 
 <section class="form_section">
   <div class="icon">
-    <i class="fa fa-users fa-5x"></i>
+    <i class="fa fa-user fa-5x"></i>
   </div>
   <div class="page_title">
     Log In
