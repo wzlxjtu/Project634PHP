@@ -8,6 +8,8 @@ $Lots = $_GET['Lots'];
 $timeHour = $_GET['Hours'];
 $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
+//Need the userid to search for preferences
+//$userID = ........
 
 $tempLotList = array();
 
@@ -60,9 +62,35 @@ else
     }
     else
     {
-            
+            $month = date('m', strtotime($date));
+            $day = date('d', strtotime($date));
+            if($month == 3 && ($day >= 12 && $day <= 20))
+            {
+                $lotQuery = array('summer' == true)
+                $tempLotList[] = $db->$collectionLots->find($lotQuery);
+            }
+            elseif(($month == 6 || $month == 7 || $month == 8) && $Lots != 'Night')
+            {
+                $lotQuery = array('summer' == true)
+                $tempLotList[] = $db->$collectionLots->find($lotQuery);
+            }
     }
 }
+
+/*
+Iterate through lot list and remove any with construction.
+*/
+foreach($tempLotList as $index => $current)
+{
+    if($current['construction'] == true)
+    {
+        unset($tempLotList[$index]);
+    }
+    //Reindex the array
+    $tempLotList = array_values($tempLotList);
+    print_r($tempLotList);
+}
+
 /* 
 Pass entire list to ?? to determine shortest walking time.
 */
@@ -71,6 +99,10 @@ Pass entire list to ?? to determine shortest walking time.
 Check list for user preferences.
 What if multiple parking lots meet preferences?
 */
+$userQuery = $db->$collectionUser->findOne(array('userid' == $userID));
+$userPreference_well_lit = $userQuery['well_lit'];
+$userPreference_easy_parking = $userQuery['easy_parking'];
+$userPreference_easy_exit = $userQuery['easy_exit'];
 
 /*
 Check list for user history and return "most used" lot.
