@@ -1,14 +1,3 @@
-<script src="form.js">
-</script>
-<div id="wrapper">
-  <header>
-    Texas A&M University Parking Suggestions
-  </header>
-  <nav>
-    <a href="#" class="btn">Manage Account</a>
-    <a href="#" class="btn">Sign Up</a>
-    <a href="#" class="btn">Log In</a>
-  </nav>
   <aside>
     <div id="form">
       <form action="" method="get">
@@ -186,5 +175,3 @@
     <div id="map">
     </div>
   </section>
-</div>
-

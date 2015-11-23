@@ -18,6 +18,11 @@ a:hover {
     text-decoration: underline;
 }
 
+header a, header a:hover, header a:visited {
+    color: white;
+    text-decoration: none;
+}
+
 h1 {
     font-size: 16px;
     color: #80CBC4;
@@ -110,8 +115,8 @@ aside #form {
     overflow: hidden;
 }
 
-aside select,
-aside input {
+select,
+input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -153,14 +158,14 @@ aside #Meridiems {
     margin-right: 0px;
 }
 
-aside .btn {
+aside .btn, section .btn {
     color: #80CBC4;
     background: white;
     border: solid #80CBC4 1px;
     float: right;
 }
 
-aside .btn:hover {
+aside .btn:hover, section .btn:hover {
     color: white;
     background: #80CBC4;
     border: solid #80CBC4 1px;
@@ -260,6 +265,26 @@ section {
     display: block;
     margin: 0 auto;
     padding: 8px;
+}
+
+.form_section {
+    width: 400px ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.icon {
+    color: #80CBC4;
+    width: 100px;
+    margin: 50px auto;
+}
+
+.title {
+    color: #80CBC4;
+    font-size: 18pt;
+    width: 100px;
+    margin: 50px auto;
 }
 
 .BigButton {
