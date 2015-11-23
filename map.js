@@ -130,12 +130,10 @@ function SetClick(div_name)
 {
     var element = document.getElementById(div_name);
     element.style.cursor = 'pointer';
-    element.onmouseover = function() {
-        this.style.backgroundColor = '#80CBC4';
-    };
-    element.onmouseout = function() {
-        this.style.backgroundColor = '';
-    };
+    // element.onmouseover = function() {
+    // };
+    // element.onmouseout = function() {
+    // };
     return element;
 }
 

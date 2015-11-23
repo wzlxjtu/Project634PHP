@@ -6,7 +6,7 @@ require 'head.php';
   <div class="icon">
     <i class="fa fa-users fa-5x"></i>
   </div>
-  <div class="title">
+  <div class="page_title">
     Sign Up
   </div>
   <div>

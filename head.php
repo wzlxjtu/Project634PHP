@@ -30,6 +30,7 @@
     <a href="/">Texas A&M University Parking Suggestions</a>
   </header>
   <nav>
+    <a href="/" class="btn">Back</a>
     <a href="account.php" class="btn">Manage Account</a>
     <a href="signup.php" class="btn">Sign Up</a>
     <a href="login.php" class="btn">Log In</a>
