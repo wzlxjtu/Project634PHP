@@ -24,10 +24,15 @@ function process_form()
 function ReasoningResponse(ReasoningRequest) {
     if (ReasoningRequest.readyState == 4 && ReasoningRequest.status == 200) {
 			//document.getElementById("showserver").innerHTML = httpRequest.responseText;
+<<<<<<< HEAD
 			//alert(ReasoningRequest.responseText);
+=======
+			alert(ReasoningRequest.responseText);
+>>>>>>> 2abc74e18f72a4b2cd8f3c9c10ddc8510e88cd27
 			var FormData = JSON.parse(ReasoningRequest.responseText);
 			//document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
 			//    "<br>Lots: " + FormData.lots;
+			//alert(FormData.Building);
 			ResetMap();
 			CalcRoute(FormData.Building);
     }

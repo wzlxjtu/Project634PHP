@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +36,42 @@
     <a href="/">Texas A&M University Parking Suggestions</a>
   </header>
   <nav>
-    <a href="/" class="btn">Back</a>
-    <a href="account.php" class="btn">Manage Account</a>
-    <a href="signup.php" class="btn">Sign Up</a>
-    <a href="login.php" class="btn">Log In</a>
+    <?php
+    
+    # If user wants to logout, then logout
+    if ($_GET["logout"] == "true") {
+      unset($_SESSION["user"]);
+    }
+    
+    # Back button showed on any other page than index.php
+    if (basename($_SERVER['PHP_SELF']) != "index.php") {
+      echo "<a href='/' class='btn'>Back</a>\n";
+    }
+
+    # User is logged in
+    if (isset($_SESSION["user"])) {
+      
+      # Accout button
+      if (basename($_SERVER['PHP_SELF']) != "account.php") {
+        echo "<a href='account.php' class='btn'>Manage Account</a>\n";
+      }
+      
+      # Logout button
+      echo "<a href='index.php?logout=true' class='btn'>Log out</a>\n";
+      
+    # User is not logged in
+    } else {
+      
+      # Sign up button
+      if (basename($_SERVER['PHP_SELF']) != "signup.php") {
+        echo "<a href='signup.php' class='btn'>Sign Up</a>\n";
+      }
+      
+      # Login button
+      if (basename($_SERVER['PHP_SELF']) != "login.php") {
+        echo "<a href='login.php' class='btn'>Log In</a>\n";
+      }
+    }
+    
+    ?>
   </nav>

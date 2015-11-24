@@ -2,11 +2,12 @@
 require 'head.php';
 
 require 'preferences.php';
+require 'functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   # Get attributes
-  $email = $_POST["email"];
-  $password = $_POST["password"];
+  $email = secure($_POST["email"]);
+  $password = secure($_POST["password"]);
   
   # Compute MD5 hash
   $password_md5 = md5($password);
@@ -21,10 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $result = $collection->find($user);
   
   if ($result->hasNext()) {
+    
+    # Set user session
     $_SESSION["user"] = $result->getNext();
   } else {
-    $_SESSION["user"] = null;
+    
+    # Unset user session
+    unset($_SESSION["user"]);
   }
+  
+  # Refresh to update header with appropriate buttons
+  header("Refresh:0");
 }
 ?>
 
@@ -36,10 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Log In
   </div>
   <div>
-    <form action="login.php" method="post">
-      <input type='text' id='email' name='email' placeholder="E-mail" />
-      <input type='password' id='password' name='password' placeholder="Password" />
-      <input id="submit" type="submit" class='btn' value="Log in" >
+    <form action="" method="get">
+      <input type='text' id='email' placeholder="E-mail" />
+      <input type='password' id='password' placeholder="Password" />
+      <input id="submit" type="button" class='btn' value="Log in" onclick="SubmitForm('login.php')">
     </form>
     <div>
       <p>Don't have an account? <a href="signup.php">Sign up</a></p>
