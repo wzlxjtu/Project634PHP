@@ -44,10 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Log In
   </div>
   <div>
-    <form action="login.php" method="post">
-      <input type='text' id='email' name='email' placeholder="E-mail" />
-      <input type='password' id='password' name='password' placeholder="Password" />
-      <input id="submit" type="submit" class='btn' value="Log in" >
+    <form action="" method="get">
+      <input type='text' id='email' placeholder="E-mail" />
+      <input type='password' id='password' placeholder="Password" />
+      <input id="submit" type="button" class='btn' value="Log in" onclick="SubmitForm('login.php')">
     </form>
     <div>
       <p>Don't have an account? <a href="signup.php">Sign up</a></p>

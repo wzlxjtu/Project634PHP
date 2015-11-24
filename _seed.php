@@ -54,40 +54,14 @@ $building = array(
             );       
     
 $user = array(
-            [
-               'id'=>'1','userid'=>'regularBill','password'=>'test','parkingpermit'=>'50',
-               'first_name'=>'Bill','last_name'=>'regular', 'email'=>'bill@tamu.edu', 
-               'well_lit'=>false,'easy_exit'=>false,'easy_parking'=>true,'like_walking'=>true,
-               'history'   =>['1'=>['50','100','51'],
-                              '2'=>['50']
-                            ],
-               'active'=>true
-             ],
+            ['id'=>'1','userid'=>'regular','password'=>'test','history'   =>['1'=>['50','100','51'],
+                                                                            '2'=>['50']
+                                                                           ],
+                                                             'active'=>true,'well_lit'=>false,'easy_exit'=>false,'easy_parking'=>true],
                                                               
-            [
-               'id'=>'2','userid'=>'visitorScott','password'=>'test','parkingpermit'=>'51', 
-               'first_name'=>'Scott','last_name'=>'visitor', 'email'=>'scott@tamu.edu',
-               'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true,'like_walking'=>true,
-               'active'=>true
-            
-            ],
-               
-            [
-             
-               'id'=>'3','userid'=>'disabledJerry','password'=>'test',
-               'first_name'=>'Jerry','last_name'=>'disabled', 'email'=>'jerry@tamu.edu',
-               'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true,'like_walking'=>true,
-               'active'=>true
-               
-            ],    
-            [
-             
-               'id'=>'4','userid'=>'businessSam','password'=>'test','parkingpermit'=>'50', 
-               'first_name'=>'Sam','last_name'=>'business', 'email'=>'sam@tamu.edu',
-               'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true,'like_walking'=>true,
-               'active'=>true
-             
-            ], 
+            ['id'=>'2','userid'=>'visitor','password'=>'test','active'=>true, 'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true],
+            ['id'=>'3','userid'=>'disabled','password'=>'test','active'=>true,'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>true],    
+            ['id'=>'4','userid'=>'business','password'=>'test','active'=>true,'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>true], 
         );
 
     
