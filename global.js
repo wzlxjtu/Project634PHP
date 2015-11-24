@@ -14,3 +14,11 @@ Locations['ETB'] = {lat: 30.622978, lng: -96.339243};
     {lat: 30.627977, lng: -96.334407}, // Location[0] for College Station
     {lat: 30.627977, lng: -97.334407} // Location[1] for Lot 1
     ];*/
+<?php
+
+$DATABASE_HOST = "mongodb://wzlxjtu-project-634-1972520:27017";
+
+$m  = new MongoClient($DATABASE_HOST);  /*connect*/
+$db = $m->selectDB("project634");  /*select DB*/
+
+?>
