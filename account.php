@@ -1,5 +1,41 @@
 <?php
 require 'head.php';
+
+require 'preferences.php';
+require 'functions.php';
+
+# User is not logged in
+if (! isset($_SESSION["user"])) {
+  # Redirect to index
+  header('Location: index.php');
+}
+
+# Select user collection
+$collection = $db->selectCollection("user");
+  
+# Update user information from the database
+$result = $collection->find($_SESSION["user"]);
+  
+if ($result->hasNext()) {
+    
+  # Save current user
+  $user = $result->getNext();
+  
+  # Update user session
+  $_SESSION["user"] = $user;
+
+} else {
+    
+  # Unset user session
+  unset($_SESSION["user"]);
+    
+  # Redirect to index
+  header('Location: index.php');
+}
+
+# TODO autopopulate the fields
+# echo $user["last_name"];
+
 ?>
 
 <section class="form_section">
