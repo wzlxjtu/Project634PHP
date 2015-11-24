@@ -1,0 +1,18 @@
+[23-Nov-2015 03:31:05 UTC] PHP Warning:  require(head.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/signup/index.php on line 2
+[23-Nov-2015 03:31:05 UTC] PHP Stack trace:
+[23-Nov-2015 03:31:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/signup/index.php:0
+[23-Nov-2015 03:31:05 UTC] PHP Fatal error:  require(): Failed opening required 'head.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/signup/index.php on line 2
+[23-Nov-2015 03:31:05 UTC] PHP Stack trace:
+[23-Nov-2015 03:31:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/signup/index.php:0
+[23-Nov-2015 03:31:30 UTC] PHP Warning:  require(~/head.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/signup/index.php on line 2
+[23-Nov-2015 03:31:30 UTC] PHP Stack trace:
+[23-Nov-2015 03:31:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/signup/index.php:0
+[23-Nov-2015 03:31:30 UTC] PHP Fatal error:  require(): Failed opening required '~/head.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/signup/index.php on line 2
+[23-Nov-2015 03:31:30 UTC] PHP Stack trace:
+[23-Nov-2015 03:31:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/signup/index.php:0
+[23-Nov-2015 03:31:39 UTC] PHP Warning:  require(/head.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/signup/index.php on line 2
+[23-Nov-2015 03:31:39 UTC] PHP Stack trace:
+[23-Nov-2015 03:31:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/signup/index.php:0
+[23-Nov-2015 03:31:39 UTC] PHP Fatal error:  require(): Failed opening required '/head.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/signup/index.php on line 2
+[23-Nov-2015 03:31:39 UTC] PHP Stack trace:
+[23-Nov-2015 03:31:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/signup/index.php:0

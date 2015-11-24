@@ -1,0 +1,433 @@
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    min-height: 100vh;
+    background: white;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #80CBC4;
+    text-decoration: underline;
+}
+
+header a, header a:hover, header a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 16px;
+    color: #80CBC4;
+}
+
+h2 {
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+#wrapper {
+    min-height: 100vh;
+    height: auto !important;
+    height: 100vh;
+    /* -50px for the header */
+    margin: 0 auto -50px;
+    position: relative
+}
+
+header {
+    /* total height is height + top/bottom paddding + top/bottom border */
+    height: 32px;
+    padding-left: 20px;
+    padding-top: 9px;
+    padding-right: 9px;
+    padding-bottom: 9px;
+    background-color: #80CBC4;
+    text-align: left;
+    color: white;
+    font-size: 18pt;
+    font-weight: normal;
+}
+
+nav {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 12px;
+    padding-left: 0px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.btn {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+nav .btn {
+    color: white;
+    background: #80CBC4;
+    border: solid white 1px;
+}
+
+nav .btn:hover {
+    color: #80CBC4;
+    background: white;
+    border: solid white 1px;
+}
+
+aside {
+    background-color: white;
+    width: 360px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    bottom: 0px;
+    padding: 20px;
+    overflow-x: auto
+}
+
+aside #form {
+    width: 360px;
+    overflow: hidden;
+}
+
+select,
+input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 1;
+    border: solid #80CBC4 1px;
+    height: 34px;
+    background-color: white;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+aside #Hours, aside #Meridiems, aside #datepicker {
+    width: 31.45%;
+}
+
+aside #datepicker {
+    padding-bottom: 4px;
+    margin-right: 10px;
+}
+
+aside #Hours, aside #Meridiems {
+    margin-right: 10px;
+}
+
+aside #Meridiems {
+    margin-right: 0px;
+}
+
+aside .btn, section .btn {
+    color: #80CBC4;
+    background: white;
+    border: solid #80CBC4 1px;
+    float: right;
+}
+
+aside .btn:hover, section .btn:hover {
+    color: white;
+    background: #80CBC4;
+    border: solid #80CBC4 1px;
+}
+
+#building_recommendation {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+#building_recommendation a {
+    margin-right: 10px;
+}
+
+.parking_option {
+    margin-top: 5px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.parking_option:hover {
+    padding: 4px;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    border: 1px solid #80CBC4;
+    overflow: hidden;
+}
+
+.parking_option .parking_lot {
+    overflow: hidden;
+}
+
+.parking_option .parking_lot .title {
+    float: left;
+}
+
+.parking_option .parking_lot .icons {
+    float: right;
+}
+
+.parking_option .time .to_parking_lot {
+    float: left;
+}
+
+.parking_option .time .to_building {
+    float: right;
+}
+
+#legend {
+    margin-top: 40px;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+}
+
+#time_icons {
+   overflow: hidden;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#properties_icons {
+   overflow: hidden;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#parking_lot_icon {
+    float: left;
+}
+
+#building_icon {
+    float: left;
+}
+
+#well_lit_icon {
+    float: left;
+}
+
+#easy_exit_icon {
+    float: left;
+}
+
+#easy_parking_icon {
+    float: right;
+}
+
+section {
+    margin-left: 400px
+}
+
+#map {
+    position: absolute;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    /* height of the header */
+    top: 50px;
+    /* width of the side bar */
+    left: 400px;
+    right: 0;
+    bottom: 0;
+}
+
+.imgCenter {
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+.form_section {
+    width: 400px ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.icon {
+    color: #80CBC4;
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.page_title {
+    color: #80CBC4;
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    font-size: 18pt;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+
+.preferences input {
+    width: 240px;
+    margin-right: 0px;
+    margin-left: 50px;
+}
+
+.toggle_option {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.toggle_label {
+    width: 323px;
+    height: 38px;
+    vertical-align: middle;
+    float: left;
+    display: inline-block;
+}
+
+.toggle_label .toggle_label_icon {
+    width: 40px;
+    float: left;
+    margin-top: 7px;
+}
+
+.toggle_label .toggle_label_text {
+    float: left;
+    margin-top: 10px;
+}
+
+.toggle_button {
+    float: left;
+}
+
+.manage_account_buttons {
+    margin-top: 30px;
+}
+
+section .preferences .btn {
+    width: 100%;
+}
+
+/*input[type='checkbox'] {*/
+/*    width: 34px;*/
+/*}*/
+
+/*input[type='checkbox']:checked {*/
+/*    background-color: #80CBC4;*/
+/*    content: "Yes";*/
+/*}*/
+
+/*input[type='checkbox']:hover {*/
+/*    box-shadow:0px 0px 10px #80CBC4;*/
+/*}*/
+
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.cmn-toggle-round + label {
+  padding: 2px;
+  width: 68px;
+  height: 34px;
+  background-color: #dddddd;
+  -webkit-border-radius: 34px;
+  -moz-border-radius: 34px;
+  -ms-border-radius: 34px;
+  -o-border-radius: 34px;
+  border-radius: 34px;
+}
+input.cmn-toggle-round + label:before, input.cmn-toggle-round + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+input.cmn-toggle-round + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  -webkit-border-radius: 34px;
+  -moz-border-radius: 34px;
+  -ms-border-radius: 34px;
+  -o-border-radius: 34px;
+  border-radius: 34px;
+  -webkit-transition: background 0.4s;
+  -moz-transition: background 0.4s;
+  -o-transition: background 0.4s;
+  transition: background 0.4s;
+}
+input.cmn-toggle-round + label:after {
+  width: 32px;
+  background-color: #fff;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  border: 1px solid #dddddd;
+  -webkit-transition: margin 0.4s;
+  -moz-transition: margin 0.4s;
+  -o-transition: margin 0.4s;
+  transition: margin 0.4s;
+}
+input.cmn-toggle-round:checked + label:before {
+  background-color: #80CBC4;
+}
+input.cmn-toggle-round:checked + label:after {
+  margin-left: 36px;
+}
+
