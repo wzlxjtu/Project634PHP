@@ -1,5 +1,5 @@
 // Google Maps functions
-var map, MyLocation, google, Locations;
+var map, MyLocation, currentLocation, google, Locations;
 var DriveDirection, WalkDirection;
 var ParkingLots, LotNames, Dest_Building;
 var SWT, MOU, PP, SWT_lot, MOU_lot, PP_lot;
@@ -69,7 +69,7 @@ function CalcTime(response, status) {
     Destination.ShowMarker(true);
     Destination.marker.addListener('click', function() {
         Destination.ShowMarker(false);
-        requestDirections(Locations[0], SWT_lot, 'DRIVING');
+        requestDirections(currentLocation, SWT_lot, 'DRIVING');
         requestDirections(SWT_lot, Dest_Building[0], 'WALKING');
         });
     
@@ -81,17 +81,17 @@ function CalcTime(response, status) {
     
     SWT.onclick = function() {
         ResetMap();
-        requestDirections(Locations[0], SWT_lot, 'DRIVING');
+        requestDirections(currentLocation, SWT_lot, 'DRIVING');
         requestDirections(SWT_lot, Dest_Building[0], 'WALKING');
     };
     MOU.onclick = function() {
         ResetMap();
-        requestDirections(Locations[0], MOU_lot, 'DRIVING');
+        requestDirections(currentLocation, MOU_lot, 'DRIVING');
         requestDirections(MOU_lot, Dest_Building[0], 'WALKING');
     };
     PP.onclick = function() {
         ResetMap();
-        requestDirections(Locations[0], PP_lot, 'DRIVING');
+        requestDirections(currentLocation, PP_lot, 'DRIVING');
         requestDirections(PP_lot, Dest_Building[0], 'WALKING');
     };
   }
@@ -101,7 +101,7 @@ function ShowTimeInfo(){
     var DriveService = new google.maps.DistanceMatrixService();
     DriveService.getDistanceMatrix(
       {
-          origins: [Locations[0]], //LatLng Array
+          origins: [currentLocation], //LatLng Array
           destinations: [SWT_lot,MOU_lot,PP_lot], //LatLng Array
           unitSystem: google.maps.UnitSystem.IMPERIAL,
           travelMode: google.maps.TravelMode.DRIVING,
@@ -221,7 +221,7 @@ function createLOCATION(location, text){
 function GetMyPosition(){ //Get the current location
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+            currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
             MyLocation = createLOCATION(currentLocation,"MyLocation");
             map.setCenter(currentLocation);
             MyLocation.marker.setIcon('resources/MyLocation.png');
