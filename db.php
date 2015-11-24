@@ -35,7 +35,7 @@ $ chmod a+x mongod
 $ ./mongod
 
 ----- 5. run mongodb Client
-$ mongo
+$ mongo      
 
 ---- reference
 https://docs.c9.io/docs/setting-up-mongodb
@@ -47,10 +47,13 @@ http://www.sitepoint.com/building-simple-blog-app-mongodb-php/
 https://docs.mongodb.org/manual/?_ga=1.77802384.540156671.1447120948
 */
 
-// connect
+// to connect to MongoDB, the client should set its 'host' and 'port'. it can be checked by running ./mongod 
 /*
 $./mongod(enter)
 checkout dbpath
+                                                                        -----------                   ------------------------------------
+2015-11-24T19:24:10.084+0000 [initandlisten] MongoDB starting : pid=7538 port=27017 dbpath=data 64-bit host=ohnarya-project634php-2174620
+                                                                         ----------                   ------------------------------------     
 
 $m = new MongoClient("mongodb:host:port");
 */
@@ -127,7 +130,7 @@ $c = array(
     );
 echo("<br>");
 var_dump($c);  
-//$collection->save($c);
+$collection->save($c);
     
     
 ?>
