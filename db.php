@@ -91,10 +91,11 @@ $(document).ready(function() {
                url: './migrate.php?mode=i',
                dataType: 'json',
                success: function(data){
-                   //alert(data['id']);
+                  
                     $("#notify2").html( "collections were inserted.");
                }
             });
+            
     });    
 });    
 </script>
@@ -119,5 +120,15 @@ if($collection != null){
     }
 }
 
+
+$c = array(
+    
+      ['id'=>'5','userid'=>'faculty','password'=>'test','active'=>true,'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>true]
+    );
+echo("<br>");
+var_dump($c);  
+//$collection->save($c);
+    
+    
 ?>
 
