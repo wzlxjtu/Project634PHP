@@ -70,7 +70,7 @@ require 'head.php';
       </div>
       
       <div class="manage_account_buttons">
-        <input id="submit" type="button" class='btn' value="Save" onclick="SubmitForm('account.php')">
+        <input id="submit" type="button" class='btn' value="Save" onclick="SubmitForm('accountgit.php')">
       </div>
     </form>
     <!--<div>-->

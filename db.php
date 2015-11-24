@@ -6,6 +6,8 @@
 </head>
 
 <?php
+require 'preferences.php';
+
 echo("<h2>Database Management</h2>");
 /* 
 
@@ -105,8 +107,6 @@ $(document).ready(function() {
 
 <?php
 
-$m  = new MongoClient( "mongodb://ohnarya-project634php-2174620:27017" );  /*connect*/
-$db = $m->selectDB("project634");  /*select DB*/
 $collection = $db->selectCollection("user"); /*select collection(table)*/
 
 if($collection != null){
