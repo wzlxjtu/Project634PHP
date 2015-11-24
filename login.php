@@ -25,14 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     # Set user session
     $_SESSION["user"] = $result->getNext();
+    
+    # Redirect to index after succesfull login
+    header('Location: index.php');
   } else {
     
     # Unset user session
     unset($_SESSION["user"]);
+    
+    # Set error message
+    $_SESSION['message'] = "Incorrect login credentials!";
   }
-  
-  # Refresh to update header with appropriate buttons
-  header("Refresh:0");
 }
 ?>
 
@@ -42,6 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
   <div class="page_title">
     Log In
+    <?php
+      if (isset($_SESSION['message'])) {
+        echo "<br/><br/>";
+        echo "<p>" . $_SESSION['message'] . "</p>";
+      }
+      
+      unset($_SESSION['message']);
+    ?>
   </div>
   <div>
     <form action="login.php" method="post">

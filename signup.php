@@ -48,6 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
   <div class="page_title">
     Sign Up
+    <?php
+      if (isset($_SESSION['message'])) {
+        echo "<br/><br/>";
+        echo "<p>" . $_SESSION['message'] . "</p>";
+      }
+      
+      unset($_SESSION['message']);
+    ?>
   </div>
   <div>
     <form action="signup.php" method="post">
@@ -65,18 +73,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <?php
-
-$first_name = $_POST["first_name"];
-$last_name = $_POST["last_name"];
-$email = $_POST["email"];
-$password = $_POST["password"];
-$password_confirmation = $_POST["password_confirmation"];
-
-echo "<h1> $first_name </h1>";
-
-
-$collection = $db->selectCollection("user");
-$result = $collection->insert( ['id'=>'5','userid'=>'visitor','password'=>'test','active'=>true, 'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true] );
-
 require 'foot.php';
 ?>
