@@ -1,6 +1,6 @@
 
 <?php
-/* 
+/*
 // Old code
 $Building = $_GET['Building'];
 $Lots = $_GET['Lots'];
@@ -56,10 +56,10 @@ $tempLotList[] = $collectionLots->findOne($lotQuery);
 */
 if(($timeHour >= 4 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
 {
-    $lotQuery = array('id' == 'WCG');
+    $lotQuery = array('id' => 'WCG');
     $tempLotList[] = $db->$collectionLots->find($lotQuery);
-    $lotQuery = array('night' == true);
-    $tempLotList[] = $db.$collectionLots.find($lotQuery);
+    $lotQuery = array('night' => true);
+    $tempLotList[] = $collectionLots->find($lotQuery);
 }
 print_r($tempLotList);
 /*
