@@ -18,6 +18,11 @@ a:hover {
     text-decoration: underline;
 }
 
+header a, header a:hover, header a:visited {
+    color: white;
+    text-decoration: none;
+}
+
 h1 {
     font-size: 16px;
     color: #80CBC4;
@@ -110,8 +115,8 @@ aside #form {
     overflow: hidden;
 }
 
-aside select,
-aside input {
+select,
+input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -136,14 +141,31 @@ aside input {
     margin-top: 0px;
 }
 
-aside .btn {
+aside #Hours, aside #Meridiems, aside #datepicker {
+    width: 31.45%;
+}
+
+aside #datepicker {
+    padding-bottom: 4px;
+    margin-right: 10px;
+}
+
+aside #Hours, aside #Meridiems {
+    margin-right: 10px;
+}
+
+aside #Meridiems {
+    margin-right: 0px;
+}
+
+aside .btn, section .btn {
     color: #80CBC4;
     background: white;
     border: solid #80CBC4 1px;
     float: right;
 }
 
-aside .btn:hover {
+aside .btn:hover, section .btn:hover {
     color: white;
     background: #80CBC4;
     border: solid #80CBC4 1px;
@@ -160,6 +182,16 @@ aside .btn:hover {
 
 .parking_option {
     margin-top: 5px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.parking_option:hover {
+    padding: 4px;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    border: 1px solid #80CBC4;
     overflow: hidden;
 }
 
@@ -245,55 +277,157 @@ section {
     padding: 8px;
 }
 
-.BigButton {
-    background-color: transparent;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 2px solid #FFFFFF;
+.form_section {
+    width: 400px ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.icon {
+    color: #80CBC4;
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.page_title {
+    color: #80CBC4;
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    font-size: 18pt;
+}
+
+label {
     display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Trebuchet MS;
-    font-size: 20px;
-    font-weight: bold;
+    width: 100px;
+    text-align: left;
 }
 
-.BigButton:hover {
-    background-color: #CCCC99;
+.preferences input {
+    width: 240px;
+    margin-right: 0px;
+    margin-left: 50px;
 }
 
-.BigButton:active {
-    position: relative;
-    top: 1px;
-}
-
-.BigSelect {
-    border-radius: 3px;
+.toggle_option {
+    display: inline-block;
     overflow: hidden;
-    background: #FFFFFF;
-    font-size: 20px;
-    width: 360px;
-    margin-bottom: 20px;
-    margin-top: 0px;
 }
 
-.BigSelect select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
+.toggle_label {
+    width: 323px;
+    height: 38px;
+    vertical-align: middle;
+    float: left;
+    display: inline-block;
 }
 
-.BigSelect select:focus {
-    outline: none;
+.toggle_label .toggle_label_icon {
+    width: 40px;
+    float: left;
+    margin-top: 7px;
 }
 
-.BigInput {
-    height: 30px;
-    width: 80px;
-    font-size: 28px
+.toggle_label .toggle_label_text {
+    float: left;
+    margin-top: 10px;
 }
+
+.toggle_button {
+    float: left;
+}
+
+.manage_account_buttons {
+    margin-top: 30px;
+}
+
+section .preferences .btn {
+    width: 100%;
+}
+
+/*input[type='checkbox'] {*/
+/*    width: 34px;*/
+/*}*/
+
+/*input[type='checkbox']:checked {*/
+/*    background-color: #80CBC4;*/
+/*    content: "Yes";*/
+/*}*/
+
+/*input[type='checkbox']:hover {*/
+/*    box-shadow:0px 0px 10px #80CBC4;*/
+/*}*/
+
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.cmn-toggle-round + label {
+  padding: 2px;
+  width: 68px;
+  height: 34px;
+  background-color: #dddddd;
+  -webkit-border-radius: 34px;
+  -moz-border-radius: 34px;
+  -ms-border-radius: 34px;
+  -o-border-radius: 34px;
+  border-radius: 34px;
+}
+input.cmn-toggle-round + label:before, input.cmn-toggle-round + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+input.cmn-toggle-round + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  -webkit-border-radius: 34px;
+  -moz-border-radius: 34px;
+  -ms-border-radius: 34px;
+  -o-border-radius: 34px;
+  border-radius: 34px;
+  -webkit-transition: background 0.4s;
+  -moz-transition: background 0.4s;
+  -o-transition: background 0.4s;
+  transition: background 0.4s;
+}
+input.cmn-toggle-round + label:after {
+  width: 32px;
+  background-color: #fff;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  border: 1px solid #dddddd;
+  -webkit-transition: margin 0.4s;
+  -moz-transition: margin 0.4s;
+  -o-transition: margin 0.4s;
+  transition: margin 0.4s;
+}
+input.cmn-toggle-round:checked + label:before {
+  background-color: #80CBC4;
+}
+input.cmn-toggle-round:checked + label:after {
+  margin-left: 36px;
+}
+

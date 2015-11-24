@@ -25,10 +25,10 @@ $user = array(
             ['id'=>'1','userid'=>'user1','password'=>'user1','history'   =>['1'=>['50','100','51'],
                                                                             '2'=>['50']
                                                                            ],
-                                                             'active'=>true],
+                                                             'active'=>true,'well_lit'=>false,'easy_exit'=>false,'easy_parking'=>true],
                                                               
-            ['id'=>'2','userid'=>'user2','password'=>'user2','active'=>true],
-            ['id'=>'3','userid'=>'user3','password'=>'user3','active'=>true],    
+            ['id'=>'2','userid'=>'user2','password'=>'user2','active'=>true, 'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true],
+            ['id'=>'3','userid'=>'user3','password'=>'user3','active'=>true,'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>true],    
         );
 
     
