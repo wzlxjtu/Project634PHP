@@ -25,6 +25,7 @@ function ReasoningResponse(ReasoningRequest) {
     if (ReasoningRequest.readyState == 4 && ReasoningRequest.status == 200) {
 			//document.getElementById("showserver").innerHTML = httpRequest.responseText;
             alert(ReasoningRequest.responseText)
+
 			var FormData = JSON.parse(ReasoningRequest.responseText);
 			//document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
 			//    "<br>Lots: " + FormData.lots;
