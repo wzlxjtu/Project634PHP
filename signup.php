@@ -3,6 +3,35 @@ require 'head.php';
 
 require 'preferences.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $first_name = $_POST["first_name"];
+  $last_name = $_POST["last_name"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+  $password_confirmation = $_POST["password_confirmation"];
+  
+  if ($password == $password_confirmation) {
+    
+    #$password_md5 = 
+    
+    $user = ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password'=> $password, 'active' => true, 'well_lit' => false, 'easy_exit' => false, 'easy_parking' => false, 'like_walking' => false];
+    
+    $collection = $db->selectCollection("user");
+    
+    try {
+      $result = $collection->insert($user);
+    } catch(MongoCursorException $e) {
+      $_SESSION['message'] = "Error while creating a new user.";
+    }
+    
+    $_SESSION['message'] = "Your user account was successfully created.";
+  
+  } else {
+    $_SESSION['message'] = "Your password and password confirmation do not match.";
+  }
+  
+}
+
 ?>
 
 <section class="form_section">
@@ -11,6 +40,12 @@ require 'preferences.php';
   </div>
   <div class="page_title">
     Sign Up
+    <?php
+      if (isset($_SESSION['message'])) {
+        echo "<br/><br/>";
+        echo "<p>" . $_SESSION['message'] . "</p>";
+      }
+    ?>
   </div>
   <div>
     <form action="signup.php" method="post">
@@ -28,18 +63,5 @@ require 'preferences.php';
 </section>
 
 <?php
-
-$first_name = $_POST["first_name"];
-$last_name = $_POST["last_name"];
-$email = $_POST["email"];
-$password = $_POST["password"];
-$password_confirmation = $_POST["password_confirmation"];
-
-echo "<h1> $first_name </h1>";
-
-
-$collection = $db->selectCollection("user");
-$result = $collection->insert( ['id'=>'5','userid'=>'visitor','password'=>'test','active'=>true, 'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>true] );
-
 require 'foot.php';
 ?>
