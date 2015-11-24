@@ -158,7 +158,6 @@ function requestDirections(start, end, mode) {
                  DriveDirection.setDirections(result);
                  marker = createLOCATION(end, 'Drive:' + result.routes[0].legs[0].duration.text); 
                  marker.ShowMarker(true);
-                 document.getElementById("SWT_drive").innerHTML = result.routes[0].legs[0].duration.text;
              }
          });
     }
@@ -173,7 +172,6 @@ function requestDirections(start, end, mode) {
                  WalkDirection.setDirections(result);
                  marker = createLOCATION(end, 'Walk:' + result.routes[0].legs[0].duration.text); 
                  marker.ShowMarker(true);
-                 document.getElementById("SWT_walk").innerHTML = result.routes[0].legs[0].duration.text;
              }
          });
     }
