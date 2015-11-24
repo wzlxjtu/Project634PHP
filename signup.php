@@ -4,7 +4,6 @@ require 'head.php';
 require 'preferences.php';
 require 'functions.php';
 
-<<<<<<< HEAD
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   # Get attributes
   $first_name = secure($_POST["first_name"]);
@@ -41,8 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['message'] = "Your password and password confirmation do not match.";
   }
 }
-=======
->>>>>>> d78136c4c9a24661f1a06758e37b3d9511ecd988
 ?>
 
 <section class="form_section">
