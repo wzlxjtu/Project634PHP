@@ -6,9 +6,9 @@ require 'preferences.php';
 $Building = $_GET['Building'];
 $Lots = $_GET['Lots'];
 $timeHour = $_GET['Hours'];
-//$timeHour = (int)$timeHour;
-echo $timeHour;
-print_r($timeHour);
+$timeHour = (int)$timeHour;
+//echo $timeHour;
+//print_r($timeHour);
 $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
 //Need the userid to search for preferences
@@ -30,8 +30,6 @@ $tempLotList = array();
 // echo in the JSON format
 //echo '{"Building": "'. $Building .'","Lots": "' . $Lots .'"}';
 
-<<<<<<< HEAD
-=======
 //Retrieving lot corresponding to permit
 
 $lotQuery = array('id' => $Lots);
@@ -39,8 +37,6 @@ $lotQuery = array('id' => $Lots);
 $tempLotList[] = $collectionLots->findOne($lotQuery);
 
 //echo'{"Lot": "'. $Lots .'"}';
-//echo $tempLot;
-//array_map('echo', $tempLot);
 //print_r($tempLotList);
 
 /*Check time of day.    
@@ -65,7 +61,7 @@ if(($timeHour >= 4 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "
     $tempLotList[] = $db.$collectionLots.find($lotQuery);
 
 }
-//print_r($tempLotList);
+print_r($tempLotList);
 /*
 elseif(($timeHour >= 5 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
 {
@@ -128,7 +124,6 @@ $userPreference_easy_exit = $userQuery['easy_exit'];
 Check list for user history and return "most used" lot.
 Are we taking into account the building they want to visit?
 */
->>>>>>> 2abc74e18f72a4b2cd8f3c9c10ddc8510e88cd27
 
 
 ?>
