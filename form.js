@@ -17,18 +17,15 @@ function process_form()
         '&Lots=' + $('#Lots').val() +
         '&Hours=' + $('#Hours').val() +
         '&Meridiems=' + $('#Meridiems').val() +
-        'Date=' + $('#datepicker').val();
+        '&Date=' + $('#datepicker').val();
     return values;
 }
 // Show the results returned from the server
 function ReasoningResponse(ReasoningRequest) {
     if (ReasoningRequest.readyState == 4 && ReasoningRequest.status == 200) {
 			//document.getElementById("showserver").innerHTML = httpRequest.responseText;
-<<<<<<< HEAD
-			//alert(ReasoningRequest.responseText);
-=======
-			alert(ReasoningRequest.responseText);
->>>>>>> 2abc74e18f72a4b2cd8f3c9c10ddc8510e88cd27
+            alert(ReasoningRequest.responseText)
+
 			var FormData = JSON.parse(ReasoningRequest.responseText);
 			//document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
 			//    "<br>Lots: " + FormData.lots;
