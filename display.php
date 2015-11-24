@@ -78,7 +78,7 @@
       <div class="parking_lot">
         <div class="title" id = 'SWT_text'>
           <h2>
-            <a href="#">Parking Lot #</a>
+            <a href="#">No Destination</a>
           </h2>
         </div>
         <div class="icons">
@@ -90,21 +90,21 @@
       <div class="description">
         <p>Numbered parking permit required</p>
       </div>
-      <div class="time" id = 'STW_drive'>
+      <div class="time">
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i> ? h ? min (? miles)</p>
+          <p><i class="fa fa-car"></i><span id = 'SWT_drive'>? h ? min (? miles)</span></p>
         </div>
-        <div class="to_building" id = 'STW_walk'>
-          <p><i class="fa fa-child"></i> ? min (? mile)</p>
+        <div class="to_building">
+          <p><i class="fa fa-child"></i><span id = 'SWT_walk'>? min (? mile)</span></p>
         </div>
       </div>
     </div>
     <div class="parking_option" id = 'MOU'>
       <h1><i class="fa fa-history fa-lg"></i> Most Often Used</h1>
       <div class="parking_lot">
-        <div class="title">
+        <div class="title" id = 'MOU_text'>
           <h2>
-            <a href="#">Parking Lot 19</a>
+            <a href="#">No Destination</a>
           </h2>
         </div>
         <div class="icons">
@@ -118,19 +118,19 @@
       </div>
       <div class="time">
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i> 1 h 4 min (42 miles)</p>
+          <p><i class="fa fa-car"></i><span id = 'MOU_drive'>? h ? min (? miles)</span></p>
         </div>
         <div class="to_building">
-          <p><i class="fa fa-child"></i> 9 min (0.5 mile)</p>
+          <p><i class="fa fa-child"></i><span id = 'MOU_walk'>? min (? mile)</span></p>
         </div>
       </div>
     </div>
         <div class="parking_option" id = 'PP'>
       <h1><i class="fa fa-heart fa-lg"></i> Preference Parking</h1>
       <div class="parking_lot">
-        <div class="title">
+        <div class="title" id = 'PP_text'>
           <h2>
-            <a href="#">Parking Lot 14</a>
+            <a href="#">No Destination</a>
           </h2>
         </div>
         <div class="icons">
@@ -144,10 +144,10 @@
       </div>
       <div class="time">
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i> 1 h 5 min (43 miles)</p>
+          <p><i class="fa fa-car"></i><span id = 'PP_drive'>? h ? min (? miles)</span></p>
         </div>
         <div class="to_building">
-          <p><i class="fa fa-child"></i> 9 min (0.5 mile)</p>
+          <p><i class="fa fa-child"></i><span id = 'PP_walk'>? min (? mile)</span></p>
         </div>
       </div>
     </div>
