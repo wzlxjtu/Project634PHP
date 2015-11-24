@@ -29,11 +29,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $result = $collection->insert($user);
     } catch(MongoCursorException $e) {
       # There was a mistake while saving data to the database
-      $_SESSION['message'] = "Error while creating a new user.";
+      $_SESSION['message'] = "Error while creating your account.";
     }
     
-    # User was saved succesfully
-    $_SESSION['message'] = "Your user account was successfully created.";
+    # Find the given user
+    $new_user = $collection->find($user);
+  
+    if ($new_user->hasNext()) {
+    
+      # Set user session
+      $_SESSION["user"] = $new_user->getNext();
+      
+      # User was saved succesfully
+      $_SESSION['message'] = "Your user account was successfully created.";
+      
+      # Redirect to index after succesfull login
+      header('Location: index.php');
+    
+    } else {
+      # Unset user session
+      unset($_SESSION["user"]);
+    
+      # Set error message
+      $_SESSION['message'] = "Error while creating your account.";
+    }
   
   } else {
     # Password and password confirmation does not match

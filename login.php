@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   # Select user collection
   $collection = $db->selectCollection("user");
   
-  # Find the give user
+  # Find the given user
   $result = $collection->find($user);
   
   if ($result->hasNext()) {
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     unset($_SESSION["user"]);
     
     # Set error message
-    $_SESSION['message'] = "Incorrect login credentials!";
+    $_SESSION['message'] = "Incorrect login credentials.";
   }
 }
 ?>
