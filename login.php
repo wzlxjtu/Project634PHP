@@ -2,11 +2,12 @@
 require 'head.php';
 
 require 'preferences.php';
+require 'functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   # Get attributes
-  $email = $_POST["email"];
-  $password = $_POST["password"];
+  $email = secure($_POST["email"]);
+  $password = secure($_POST["password"]);
   
   # Compute MD5 hash
   $password_md5 = md5($password);
@@ -21,10 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $result = $collection->find($user);
   
   if ($result->hasNext()) {
+    
+    # Set user session
     $_SESSION["user"] = $result->getNext();
   } else {
-    $_SESSION["user"] = null;
+    
+    # Unset user session
+    unset($_SESSION["user"]);
   }
+  
+  # Refresh to update header with appropriate buttons
+  header("Refresh:0");
 }
 ?>
 

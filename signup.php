@@ -2,14 +2,15 @@
 require 'head.php';
 
 require 'preferences.php';
+require 'functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   # Get attributes
-  $first_name = $_POST["first_name"];
-  $last_name = $_POST["last_name"];
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  $password_confirmation = $_POST["password_confirmation"];
+  $first_name = secure($_POST["first_name"]);
+  $last_name = secure($_POST["last_name"]);
+  $email = secure($_POST["email"]);
+  $password = secure($_POST["password"]);
+  $password_confirmation = secure($_POST["password_confirmation"]);
   
   # Check if password matches password confirmation
   if ($password == $password_confirmation) {
