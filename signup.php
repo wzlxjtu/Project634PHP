@@ -4,34 +4,41 @@ require 'head.php';
 require 'preferences.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  # Get attributes
   $first_name = $_POST["first_name"];
   $last_name = $_POST["last_name"];
   $email = $_POST["email"];
   $password = $_POST["password"];
   $password_confirmation = $_POST["password_confirmation"];
   
+  # Check if password matches password confirmation
   if ($password == $password_confirmation) {
     
-    #$password_md5 = 
+    # Compute MD5 hash
+    $password_md5 = md5($password);
     
-    $user = ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password'=> $password, 'active' => true, 'well_lit' => false, 'easy_exit' => false, 'easy_parking' => false, 'like_walking' => false];
+    # Initialize new user
+    $user = ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password'=> $password_md5, 'active' => true, 'well_lit' => false, 'easy_exit' => false, 'easy_parking' => false, 'like_walking' => false];
     
+    # Select user collection
     $collection = $db->selectCollection("user");
     
     try {
+      # Save user to the database
       $result = $collection->insert($user);
     } catch(MongoCursorException $e) {
+      # There was a mistake while saving data to the database
       $_SESSION['message'] = "Error while creating a new user.";
     }
     
+    # User was saved succesfully
     $_SESSION['message'] = "Your user account was successfully created.";
   
   } else {
+    # Password and password confirmation does not match
     $_SESSION['message'] = "Your password and password confirmation do not match.";
   }
-  
 }
-
 ?>
 
 <section class="form_section">
