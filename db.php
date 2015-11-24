@@ -124,13 +124,6 @@ if($collection != null){
 }
 
 
-$c = array(
-    
-      ['id'=>'5','userid'=>'faculty','password'=>'test','active'=>true,'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>true]
-    );
-echo("<br>");
-var_dump($c);  
-$collection->save($c);
     
     
 ?>
