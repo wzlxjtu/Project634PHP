@@ -1,9 +1,0 @@
-Hints for commands:
-
-#Push to Github:
-git add -A
-git commit -m "Commit Info"
-git push origin master
-
-#Push to Heroku
-git push heroku master
