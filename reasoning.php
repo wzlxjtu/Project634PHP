@@ -1,15 +1,6 @@
 
 <?php
-/*
-// Old code
-$Building = $_GET['Building'];
-$Lots = $_GET['Lots'];
-//echo the data received from the client
-//echo "Building = $building";
-//echo "<br>Lots = $lots";
-// echo in the JSON format
-echo '{"Building": "'. $Building .'","Lots": "' . $Lots .'"}';
-*/
+
 require 'preferences.php';
 //Receiving the data from the client 
 $Building = $_GET['Building'];
@@ -19,38 +10,20 @@ $timeHour = (int)$timeHour;
 $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
 //Need the userid to search for preferences
-<<<<<<< HEAD
 $userID = $_SESSION['user'];
 print_r($_SESSION["user"]);
 
-=======
-//$userID = ........
->>>>>>> faeb834a2aa486750bfe1106669a0d39df174d3a
+
 $collectionLots = $db->selectCollection("parkinglot");
 $collectionBuildings = $db->selectCollection("building");
 $collectionUser = $db->selectCollection("user");
     
 $tempLotList = array();
-//echo the data received from the client
-//echo "Building = $building";
-//echo "<br>Lots = $lots";
-// echo in the JSON format
-//echo '{"Building": "'. $Building .'","Lots": "' . $Lots .'"}';
+
 //Retrieving lot corresponding to permit
 $lotQuery = array('id' => $Lots);
-<<<<<<< HEAD
 $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' => false));
-/*foreach($cursor as $current)
-{
-    $tempLotList[] = $current;
-}*/
 
-=======
-//$tempLot = $collectionLots->findOne($lotQuery);
-$tempLotList[] = $collectionLots->findOne($lotQuery);
->>>>>>> faeb834a2aa486750bfe1106669a0d39df174d3a
-//echo'{"Lot": "'. $Lots .'"}';
-//print_r($tempLotList);
 /*Check time of day.    
     If after 4pm, but before 6am: retrieve WCG record and all "night" parking lots.
     Elseif after 5pm, but before 6am: retrieve all "night" parking lots.
@@ -64,7 +37,6 @@ $tempLotList[] = $collectionLots->findOne($lotQuery);
               If not night permit: retrieve all "summer" records
               Else: ??????? Where can they park during the day/school year with their permit???
 */
-<<<<<<< HEAD
 
 if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "AM"))
 {   print_r('In if');
@@ -79,24 +51,12 @@ if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "
       //$tempLotList[] = iterator_to_array($cursor);
     //}
     $lotQuery = array('night' => true);
-    //print_r($lotQuery);
     $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
-   // if(count($cursor) > 1)
-    //{   
-      //$tempLotList[] = iterator_to_array($cursor);
-    //}
+  
     foreach($cursor as $id => $value)
     {
         $tempLotList[] = $value;
     }
-=======
-if(($timeHour >= 4 && $time_AM_PM == "PM") || ($timeHour <= 6 && time_AM_PM == "AM"))
-{
-    $lotQuery = array('id' => 'WCG');
-    $tempLotList[] = $db->$collectionLots->find($lotQuery);
-    $lotQuery = array('night' => true);
-    $tempLotList[] = $collectionLots->find($lotQuery);
->>>>>>> faeb834a2aa486750bfe1106669a0d39df174d3a
 }
 
 elseif(($timeHour >= 5 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == 'AM'))
@@ -153,16 +113,11 @@ else
                 //$tempLotList[] = iterator_to_array($cursor);
             }
     }
-<<<<<<< HEAD
 }
 //print_r($date);
 //print_r('Month: ');
 //echo date('m', strtotime($date));
 
-
-=======
-}*/
->>>>>>> faeb834a2aa486750bfe1106669a0d39df174d3a
 /*
 Iterate through lot list and remove any with construction.
 */
@@ -179,11 +134,9 @@ Iterate through lot list and remove any with construction.
 /* 
 Pass entire list to ?? to determine shortest walking time.
 */
-<<<<<<< HEAD
-//print_r($tempLotList);
 
-=======
->>>>>>> faeb834a2aa486750bfe1106669a0d39df174d3a
+print_r($tempLotList);
+
 /*
 Check list for user preferences.
 What if multiple parking lots meet preferences?
