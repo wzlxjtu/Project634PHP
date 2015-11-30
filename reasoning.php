@@ -140,7 +140,7 @@ Iterate through lot list and remove any with construction.
 Pass entire list to ?? to determine shortest walking time.
 */
 
-print_r($tempLotList);
+//print_r($tempLotList);
 
 /*
 Check list for user preferences.
@@ -157,7 +157,7 @@ $tempPreferenceLots = array();
 foreach($tempLotList as $value)
 {
     if($userPreference_well_lit)
-    {  print_r('In well lit');
+    {  //print_r('In well lit');
         if($value['well_lit'])
         {
             $tempPreferenceLots[] = $value['well_lit'];
@@ -181,9 +181,37 @@ foreach($tempLotList as $value)
 /*
 Add user preference lot to $tempLotList
 */
+if(!empty($tempPreferenceLots))
+{
+    //print_r('Preference');
+}
+else
+{
+    $lotQuery = array('id' => $Lots);
+    $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' => false));
+}
 /*
 Check list for user history and return "most used" lot.
 Are we taking into account the building they want to visit?
 */
 $userHistory = $thisUser['History'];
+$tempHistoryLots = array();
+
+/*
+Add user history lot to $tempLotList
+*/
+if(!empty($tempHistoryLots))
+{
+    //print_r('History');
+}
+else
+{
+    $lotQuery = array('id' => $Lots);
+    $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' => false));
+}
+
+/*
+Pass list
+*/
+print_r($tempLotList);
 ?>
