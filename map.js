@@ -11,7 +11,7 @@ var WalkLine = new google.maps.Polyline({
   strokeOpacity: 0,
   strokeColor: '0099FF',
   icons: [{
-    icon: {path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 4 },
+    icon: {path: 'M 0,-1 0,1', strokeOpacity: 0.7, scale: 4 },
     offset: '0',
     repeat: '20px'
   }]
@@ -64,7 +64,7 @@ function CalcTime(response, status) {
     SWT_lot = ParkingLots[min_num];
     MOU_lot = ParkingLots[0];
     PP_lot = ParkingLots[2];
-    var Destination = createLOCATION(SWT_lot, "Lot #" + LotNames[min_num] + "<br>Walk: " + 
+    var Destination = createLOCATION(SWT_lot, "Lot #" + LotNames[min_num] + "<br>Nearest: " + 
         response.rows[min_num].elements[0].duration.text); 
     Destination.ShowMarker(true);
     Destination.marker.addListener('click', function() {
