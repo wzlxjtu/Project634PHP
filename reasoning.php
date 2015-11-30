@@ -11,7 +11,8 @@ $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
 //Need the userid to search for preferences
 $userID = $_SESSION['user'];
-print_r($_SESSION["user"]);
+print_r('userID = ');
+print_r($userID);
 
 
 $collectionLots = $db->selectCollection("parkinglot");
@@ -141,13 +142,44 @@ print_r($tempLotList);
 Check list for user preferences.
 What if multiple parking lots meet preferences?
 */
-$userQuery = $collectionUser->findOne(array('userid' == $userID));
-$userPreference_well_lit = $userQuery['well_lit'];
-$userPreference_easy_parking = $userQuery['easy_parking'];
-$userPreference_easy_exit = $userQuery['easy_exit'];
+$userQuery = array('userid' => $userID);
+$thisUser = $collectionUser->findOne($userQuery);
+$userPreference_well_lit = $thisUser['well_lit'];
+$userPreference_easy_parking = $thisUser['easy_parking'];
+$userPreference_easy_exit = $thisUser['easy_exit'];
 
+$tempPreferenceLots = array();
+
+foreach($tempLotList as $value)
+{
+    if($userPreference_well_lit)
+    {
+        if($value['well_lit'])
+        {
+            $tempPreferenceLots[] = $value['well_lit'];
+        }
+    }
+    if($userPreference_easy_exit)
+    {
+        if($value['easy_exit'])
+        {
+            $tempPreferenceLots[] = $value['easy_exit']
+        }
+    }
+    if($userPreference_easy_parking)
+    {
+        if($value['easy_parking'])
+        {
+            $tempPreferenceLots[] = $value['easy_parking']   
+        }
+    }
+}
+/*
+Add user preference lot to $tempLotList
+*/
 /*
 Check list for user history and return "most used" lot.
 Are we taking into account the building they want to visit?
 */
+$userHistory = $thisUser['History'];
 ?>
