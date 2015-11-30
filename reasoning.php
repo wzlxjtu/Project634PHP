@@ -3,6 +3,7 @@
 
 require 'preferences.php';
 //require 'head.php';
+session_start();
 
 //Receiving the data from the client 
 $Building = $_GET['Building'];
@@ -13,8 +14,9 @@ $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
 //Need the userid to search for preferences
 $userID = $_SESSION['user'];
-//print_r('userID = ');
-//print_r($userID);
+$userEmail = $userID['email'];
+//print_r('userEmail = ');
+//print_r($userEmail);
 
 
 $collectionLots = $db->selectCollection("parkinglot");
@@ -144,7 +146,7 @@ print_r($tempLotList);
 Check list for user preferences.
 What if multiple parking lots meet preferences?
 */
-$userQuery = array('userid' => $userID);
+$userQuery = array('email' => $userEmail);
 $thisUser = $collectionUser->findOne($userQuery);
 $userPreference_well_lit = $thisUser['well_lit'];
 $userPreference_easy_parking = $thisUser['easy_parking'];
@@ -155,7 +157,7 @@ $tempPreferenceLots = array();
 foreach($tempLotList as $value)
 {
     if($userPreference_well_lit)
-    {
+    {  print_r('In well lit');
         if($value['well_lit'])
         {
             $tempPreferenceLots[] = $value['well_lit'];
