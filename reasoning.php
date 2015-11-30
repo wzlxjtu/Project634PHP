@@ -27,7 +27,7 @@ $tempLotList = array();
 
 //Retrieving lot corresponding to permit
 $lotQuery = array('id' => $Lots);
-$tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' => false));
+$tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_id' => false));
 
 /*Check time of day.    
     If after 4pm, but before 6am: retrieve WCG record and all "night" parking lots.
@@ -46,7 +46,7 @@ $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' 
 if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "AM"))
 {   //print_r('In if');
     $lotQuery = array('id' => 'WCG');
-    $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
+    $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
     foreach($cursor as $id => $value)
     {
         $tempLotList[] = $value;
@@ -56,7 +56,7 @@ if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "
       //$tempLotList[] = iterator_to_array($cursor);
     //}
     $lotQuery = array('night' => true);
-    $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
+    $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
   
     foreach($cursor as $id => $value)
     {
@@ -68,7 +68,7 @@ elseif(($timeHour >= 5 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM 
 {
     //print_r('In elseif');
     $lotQuery = array('night' => true);
-    $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
+    $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
     foreach($cursor as $id => $value)
     {
         $tempLotList[] = $value;
@@ -83,7 +83,7 @@ else
     {
         //print_r('In weekend if');
         $lotQuery = array('night' => true);
-        $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
+        $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
         foreach($cursor as $id => $value)
         {
             $tempLotList[] = $value;
@@ -99,7 +99,7 @@ else
             {
                 //print_r('In month if');
                 $lotQuery = array('summer' => true);
-                $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
+                $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
                 foreach($cursor as $id => $value)
                 {
                      $tempLotList[] = $value;
@@ -110,7 +110,7 @@ else
             {
                 //print_r('In month elseif');
                 $lotQuery = array('summer' => true);
-                $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
+                $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
                 foreach($cursor as $id => $value)
                 {
                     $tempLotList[] = $value;
@@ -188,7 +188,7 @@ if(!empty($tempPreferenceLots))
 else
 {
     $lotQuery = array('id' => $Lots);
-    $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' => false));
+    $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_id' => false));
 }
 /*
 Check list for user history and return "most used" lot.
@@ -207,7 +207,7 @@ if(!empty($tempHistoryLots))
 else
 {
     $lotQuery = array('id' => $Lots);
-    $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' => false));
+    $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_id' => false));
 }
 
 /*
