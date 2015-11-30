@@ -2,6 +2,8 @@
 <?php
 
 require 'preferences.php';
+//require 'head.php';
+
 //Receiving the data from the client 
 $Building = $_GET['Building'];
 $Lots = $_GET['Lots'];
@@ -11,8 +13,8 @@ $time_AM_PM = $_GET['Meridiems'];
 $date = $_GET['Date'];
 //Need the userid to search for preferences
 $userID = $_SESSION['user'];
-print_r('userID = ');
-print_r($userID);
+//print_r('userID = ');
+//print_r($userID);
 
 
 $collectionLots = $db->selectCollection("parkinglot");
@@ -40,7 +42,7 @@ $tempLotList[] = $collectionLots->findOne($lotQuery, array('name'=> true, '_id' 
 */
 
 if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "AM"))
-{   print_r('In if');
+{   //print_r('In if');
     $lotQuery = array('id' => 'WCG');
     $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
     foreach($cursor as $id => $value)
@@ -62,7 +64,7 @@ if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "
 
 elseif(($timeHour >= 5 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == 'AM'))
 {
-    print_r('In elseif');
+    //print_r('In elseif');
     $lotQuery = array('night' => true);
     $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
     foreach($cursor as $id => $value)
@@ -73,11 +75,11 @@ elseif(($timeHour >= 5 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM 
 }
 else
 {
-    print_r('In else');
+    //print_r('In else');
     $weekend = date('w', strtotime($date));
     if($weekend == 0 || $weekend == 6)
     {
-        print_r('In weekend if');
+        //print_r('In weekend if');
         $lotQuery = array('night' => true);
         $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
         foreach($cursor as $id => $value)
@@ -88,12 +90,12 @@ else
     }
     else
     {
-        print_r('In weekend else');
+        //print_r('In weekend else');
             $month = date('m', strtotime($date));
             $day = date('d', strtotime($date));
             if($month == 3 && ($day >= 12 && $day <= 20))
             {
-                print_r('In month if');
+                //print_r('In month if');
                 $lotQuery = array('summer' => true);
                 $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
                 foreach($cursor as $id => $value)
@@ -104,7 +106,7 @@ else
             }
             elseif(($month == 6 || $month == 7 || $month == 8) && $Lots != 'Night')
             {
-                print_r('In month elseif');
+                //print_r('In month elseif');
                 $lotQuery = array('summer' => true);
                 $cursor = $collectionLots->find($lotQuery, array('name'=> true, '_id' => false));
                 foreach($cursor as $id => $value)
@@ -163,14 +165,14 @@ foreach($tempLotList as $value)
     {
         if($value['easy_exit'])
         {
-            $tempPreferenceLots[] = $value['easy_exit']
+            $tempPreferenceLots[] = $value['easy_exit'];
         }
     }
     if($userPreference_easy_parking)
     {
         if($value['easy_parking'])
         {
-            $tempPreferenceLots[] = $value['easy_parking']   
+            $tempPreferenceLots[] = $value['easy_parking']; 
         }
     }
 }
