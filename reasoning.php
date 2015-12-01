@@ -153,6 +153,9 @@ $userPreference_easy_parking = $thisUser['easy_parking'];
 $userPreference_easy_exit = $thisUser['easy_exit'];
 
 $tempPreferenceLots = array();
+$tempThreePreference = array();
+$tempTwoPreference = array();
+$tempOnePreference = array();
 
 foreach($tempLotList as $value)
 {
@@ -178,13 +181,64 @@ foreach($tempLotList as $value)
         }
     }
 }
+//print_r($tempPreferenceLots);
 /*
-Add user preference lot to $tempLotList
+If the user had preferences, determine lot to add to $tempLotList
 */
 if(!empty($tempPreferenceLots))
 {
-    //print_r('Preference');
+    print_r('Preference');
+    foreach($tempPreferenceLots as $value)
+    {
+        $count = 0;
+        if($value['well_lit'] == 1)
+        {
+            $count += 1;
+        }
+         if($value['easy_exit'] == 1)
+        {
+            $count += 1;
+        }
+         if($value['easy_parking'] == 1)
+        {
+            $count += 1;
+        }
+        if($count == 3)
+        {
+            $tempThreePreference[] = $value;
+        }
+        elseif($count == 2)
+        {
+            $tempTwoPreference[] = $value;   
+        }
+        elseif($count == 1)
+        {
+            $tempOnePreference[] = $value;
+        }
+        else
+        {
+            
+        }
+    }
+    /*
+    Determine which lot fits the most user preferences
+    */
+    if(!empty($tempThreePreference))
+    {
+        $tempLotList[] = $tempThreePreference[0];
+    }
+    elseif(!empty($tempTwoPreference))
+    {
+        $tempLotList[] = $tempTwoPreference[0];
+    }
+    elseif(!empty($tempOnePreference))
+    {
+        $tempLotList[] = $tempOnePreference[0];
+    }
 }
+/*
+If the user had no preferences, append their parking permit lot.
+*/
 else
 {
     $lotQuery = array('id' => $Lots);
@@ -204,6 +258,9 @@ if(!empty($tempHistoryLots))
 {
     //print_r('History');
 }
+/*
+If the user has no history, append their parking permit lot.
+*/
 else
 {
     $lotQuery = array('id' => $Lots);
@@ -213,5 +270,6 @@ else
 /*
 Pass list
 */
-print_r($tempLotList);
+//print_r($tempLotList);
+echo json_encode($tempLotList);
 ?>
