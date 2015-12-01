@@ -60,11 +60,6 @@
           <option value="Zachry">Zachry</option>
           <option value="MSC">MSC</option>
         </select>
-        <div id="building_recommendation">
-          <a href="#">HRBB</a>
-          <a href="#">ETB</a>
-          <a href="#">Evans</a>
-        </div>
         <input id="submit" type="button" class='btn' value="Submit" onclick="SubmitForm('reasoning.php')">
       </form>
     </div>
