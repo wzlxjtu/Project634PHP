@@ -2,8 +2,15 @@
     <div id="form">
       <form action="" method="get">
         <select id="Lots" name="Lots" value="<?php echo $_GET["Lots"];?>">
+          <option value="39">Parking Permit Lot 39</option>
+          <option value="47">Parking Permit Lot 47</option>
+          <option value="48">Parking Permit Lot 48</option>
           <option value="50">Parking Permit Lot 50</option>
           <option value="51">Parking Permit Lot 51</option>
+          <option value="54">Parking Permit Lot 54</option>
+          <option value="55">Parking Permit Lot 55</option>
+          <option value="62">Parking Permit Lot 62</option>
+          <option value="69">Parking Permit Lot 69</option>
           <option value="100">Parking Permit Lot 100</option>
         </select>
           <?php
@@ -48,11 +55,15 @@
           <option value="HRBB">HRBB</option>
           <option value="ETB">ETB</option>
           <option value="Evans">Evans</option>
+          <option value="Annex">Annex</option>
+          <option value="Kyle">Kyle</option>
+          <option value="Zachry">Zachry</option>
+          <option value="MSC">MSC</option>
         </select>
         <div id="building_recommendation">
           <a href="#">HRBB</a>
           <a href="#">ETB</a>
-          <a href="#">FERM</a>
+          <a href="#">Evans</a>
         </div>
         <input id="submit" type="button" class='btn' value="Submit" onclick="SubmitForm('reasoning.php')">
       </form>

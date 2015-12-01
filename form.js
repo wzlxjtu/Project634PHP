@@ -18,6 +18,7 @@ function process_form()
         '&Hours=' + $('#Hours').val() +
         '&Meridiems=' + $('#Meridiems').val() +
         '&Date=' + $('#datepicker').val();
+    dest_name = $('#Building').val();
     return values;
 }
 // Show the results returned from the server
@@ -25,12 +26,19 @@ function ReasoningResponse(ReasoningRequest) {
     if (ReasoningRequest.readyState == 4 && ReasoningRequest.status == 200) {
 			//document.getElementById("showserver").innerHTML = httpRequest.responseText;
             //alert(ReasoningRequest.responseText)
+            var FormData = JSON.parse(ReasoningRequest.responseText);
 
-			var FormData = JSON.parse(ReasoningRequest.responseText);
+            for (var i = 0; i < FormData.length; i++) 
+            {
+                var lotName = FormData[i].name;
+                //alert(FormData.length)
+             
+                 //alert(FormData[i].name);
+            }
 			//document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
 			//    "<br>Lots: " + FormData.lots;
 			//alert(FormData.Building);
 			ResetMap();
-			CalcRoute(FormData.Building);
+			CalcRoute(FormData);
     }
 }

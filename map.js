@@ -3,7 +3,7 @@ var map, MyLocation, currentLocation, google, Locations;
 var DriveDirection, WalkDirection;
 var ParkingLots, LotNames, Dest_Building;
 var SWT, MOU, PP, SWT_lot, MOU_lot, PP_lot;
-
+var FormData;
 google.maps.event.addDomListener(window, 'load', InitMap);
 
 var directionsService = new google.maps.DirectionsService();
@@ -43,10 +43,20 @@ function InitMap() {
     PP = SetClick("PP");
 }
 
-function CalcRoute(building) {
-    ParkingLots = [Locations['50'],Locations['51'],Locations['100']];
-    LotNames = [50,51,100];
-    Dest_Building = [Locations[building]];
+function BuildPos(data){
+    // Build a LatLng from FormData
+    var position = {lat: Number(data.lat), lng: Number(data.lng)};
+    return position;
+}
+function CalcRoute(formdata) {
+    //var a = BuildPos(FormData[10]);
+    FormData = formdata;
+    ParkingLots = [], LotNames = [];
+    for (var i = 0; i < FormData.length; i++) {
+        ParkingLots.push(BuildPos(FormData[i]));
+        LotNames.push(FormData[i].id);
+    }
+    Dest_Building = [Locations[dest_name]];
 
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
@@ -62,8 +72,8 @@ function CalcTime(response, status) {
   if (status == google.maps.DistanceMatrixStatus.OK) {
     var min_num = ShortestWalkLot(response);
     SWT_lot = ParkingLots[min_num];
-    MOU_lot = ParkingLots[0];
-    PP_lot = ParkingLots[2];
+    MOU_lot = ParkingLots[FormData.length-2];
+    PP_lot = ParkingLots[FormData.length-1];
     var Destination = createLOCATION(SWT_lot, "Lot #" + LotNames[min_num] + "<br>Nearest: " + 
         response.rows[min_num].elements[0].duration.text); 
     Destination.ShowMarker(true);
@@ -74,8 +84,8 @@ function CalcTime(response, status) {
         });
     
     document.getElementById("SWT_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[min_num]) + '</h2>';
-    document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[0]) + '</h2>';
-    document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[2]) + '</h2>';
+    document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-2]) + '</h2>';
+    document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-1]) + '</h2>';
     
     ShowTimeInfo();
     

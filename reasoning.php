@@ -224,6 +224,6 @@ else
 /*
 Pass list
 */
-print_r($tempLotList);
+echo json_encode($tempLotList);
 ?>
 
