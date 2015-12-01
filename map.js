@@ -56,6 +56,7 @@ function CalcRoute(formdata) {
         ParkingLots.push(BuildPos(FormData[i]));
         LotNames.push(FormData[i].id);
     }
+    //alert(formdata.length)
     Dest_Building = [Locations[dest_name]];
 
     var service = new google.maps.DistanceMatrixService();
@@ -72,8 +73,8 @@ function CalcTime(response, status) {
   if (status == google.maps.DistanceMatrixStatus.OK) {
     var min_num = ShortestWalkLot(response);
     SWT_lot = ParkingLots[min_num];
-    MOU_lot = ParkingLots[FormData.length-2];
-    PP_lot = ParkingLots[FormData.length-1];
+    MOU_lot = ParkingLots[FormData.length-1];
+    PP_lot = ParkingLots[FormData.length-2];
     var Destination = createLOCATION(SWT_lot, "Lot #" + LotNames[min_num] + "<br>Nearest: " + 
         response.rows[min_num].elements[0].duration.text); 
     Destination.ShowMarker(true);
@@ -84,8 +85,8 @@ function CalcTime(response, status) {
         });
     
     document.getElementById("SWT_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[min_num]) + '</h2>';
-    document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-2]) + '</h2>';
-    document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-1]) + '</h2>';
+    document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-1]) + '</h2>';
+    document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-2]) + '</h2>';
     
     ShowTimeInfo();
     
