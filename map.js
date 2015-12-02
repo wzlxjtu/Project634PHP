@@ -1,9 +1,9 @@
 // Google Maps functions
-var map, MyLocation, google, Locations;
+var map, MyLocation, currentLocation, google, Locations;
 var DriveDirection, WalkDirection;
 var ParkingLots, LotNames, Dest_Building;
 var SWT, MOU, PP, SWT_lot, MOU_lot, PP_lot;
-
+var FormData;
 google.maps.event.addDomListener(window, 'load', InitMap);
 
 var directionsService = new google.maps.DirectionsService();
@@ -11,7 +11,7 @@ var WalkLine = new google.maps.Polyline({
   strokeOpacity: 0,
   strokeColor: '0099FF',
   icons: [{
-    icon: {path: 'M 0,-1 0,1', strokeOpacity: 1, scale: 4 },
+    icon: {path: 'M 0,-1 0,1', strokeOpacity: 0.7, scale: 4 },
     offset: '0',
     repeat: '20px'
   }]
@@ -43,10 +43,20 @@ function InitMap() {
     PP = SetClick("PP");
 }
 
-function CalcRoute(building) {
-    ParkingLots = [Locations['50'],Locations['51'],Locations['100']];
-    LotNames = [50,51,100];
-    Dest_Building = [Locations[building]];
+function BuildPos(data){
+    // Build a LatLng from FormData
+    var position = {lat: Number(data.lat), lng: Number(data.lng)};
+    return position;
+}
+function CalcRoute(formdata) {
+    //var a = BuildPos(FormData[10]);
+    FormData = formdata;
+    ParkingLots = [], LotNames = [];
+    for (var i = 0; i < FormData.length; i++) {
+        ParkingLots.push(BuildPos(FormData[i]));
+        LotNames.push(FormData[i].id);
+    }
+    Dest_Building = [Locations[dest_name]];
 
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
@@ -62,36 +72,36 @@ function CalcTime(response, status) {
   if (status == google.maps.DistanceMatrixStatus.OK) {
     var min_num = ShortestWalkLot(response);
     SWT_lot = ParkingLots[min_num];
-    MOU_lot = ParkingLots[0];
-    PP_lot = ParkingLots[2];
-    var Destination = createLOCATION(SWT_lot, "Lot #" + LotNames[min_num] + "<br>Walk: " + 
+    MOU_lot = ParkingLots[FormData.length-2];
+    PP_lot = ParkingLots[FormData.length-1];
+    var Destination = createLOCATION(SWT_lot, "Lot #" + LotNames[min_num] + "<br>Nearest: " + 
         response.rows[min_num].elements[0].duration.text); 
     Destination.ShowMarker(true);
     Destination.marker.addListener('click', function() {
         Destination.ShowMarker(false);
-        requestDirections(Locations[0], SWT_lot, 'DRIVING');
+        requestDirections(currentLocation, SWT_lot, 'DRIVING');
         requestDirections(SWT_lot, Dest_Building[0], 'WALKING');
         });
     
     document.getElementById("SWT_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[min_num]) + '</h2>';
-    document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[0]) + '</h2>';
-    document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[2]) + '</h2>';
+    document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-2]) + '</h2>';
+    document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-1]) + '</h2>';
     
     ShowTimeInfo();
     
     SWT.onclick = function() {
         ResetMap();
-        requestDirections(Locations[0], SWT_lot, 'DRIVING');
+        requestDirections(currentLocation, SWT_lot, 'DRIVING');
         requestDirections(SWT_lot, Dest_Building[0], 'WALKING');
     };
     MOU.onclick = function() {
         ResetMap();
-        requestDirections(Locations[0], MOU_lot, 'DRIVING');
+        requestDirections(currentLocation, MOU_lot, 'DRIVING');
         requestDirections(MOU_lot, Dest_Building[0], 'WALKING');
     };
     PP.onclick = function() {
         ResetMap();
-        requestDirections(Locations[0], PP_lot, 'DRIVING');
+        requestDirections(currentLocation, PP_lot, 'DRIVING');
         requestDirections(PP_lot, Dest_Building[0], 'WALKING');
     };
   }
@@ -101,7 +111,7 @@ function ShowTimeInfo(){
     var DriveService = new google.maps.DistanceMatrixService();
     DriveService.getDistanceMatrix(
       {
-          origins: [Locations[0]], //LatLng Array
+          origins: [currentLocation], //LatLng Array
           destinations: [SWT_lot,MOU_lot,PP_lot], //LatLng Array
           unitSystem: google.maps.UnitSystem.IMPERIAL,
           travelMode: google.maps.TravelMode.DRIVING,
@@ -221,7 +231,7 @@ function createLOCATION(location, text){
 function GetMyPosition(){ //Get the current location
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+            currentLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
             MyLocation = createLOCATION(currentLocation,"MyLocation");
             map.setCenter(currentLocation);
             MyLocation.marker.setIcon('resources/MyLocation.png');

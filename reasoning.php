@@ -1,6 +1,17 @@
 
 <?php
 
+/*
+// Old code
+$Building = $_GET['Building'];
+$Lots = $_GET['Lots'];
+//echo the data received from the client
+//echo "Building = $building";
+//echo "<br>Lots = $lots";
+// echo in the JSON format
+echo '{"Building": "'. $Building .'","Lots": "' . $Lots .'"}';
+*/
+
 require 'preferences.php';
 //require 'head.php';
 session_start();
@@ -271,5 +282,7 @@ else
 Pass list
 */
 //print_r($tempLotList);
+
 echo json_encode($tempLotList);
 ?>
+
