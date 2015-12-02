@@ -239,23 +239,44 @@ else
 Check list for user history and return "most used" lot.
 Are we taking into account the building they want to visit?
 */
-$userHistory = $thisUser['History'];
-$tempHistoryLots = array();
+$userHistory = $thisUser['history'];
+$tempHistoryLot = array();
+
+foreach($userHistory as $index => $historyValue)
+{   
+    if($index == $Building)
+    {   
+        $mostUsed = array_count_values($historyValue);
+        asort($mostUsed);
+        end($mostUsed);
+        $mostUsed = key($mostUsed);
+        $mostUsed = (string)$mostUsed;
+        foreach($tempLotList as $checkLot)
+        {   
+            if($checkLot['id'] == $mostUsed)
+            {   
+                $lotQuery = array('id' => $mostUsed);
+                $tempHistoryLot[] = $collectionLots->findOne($lotQuery);
+                break;
+            }
+        }
+    }
+    
+}
 
 /*
 Add user history lot to $tempLotList
-*/
-if(!empty($tempHistoryLots))
-{
-    //print_r('History');
-}
-/*
 If the user has no history, append their parking permit lot.
+Otherwise, append historic parking lot.
 */
-else
-{
+if(empty($tempHistoryLot))
+{   
     $lotQuery = array('id' => $Lots);
     $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_id' => false));
+}
+else
+{   
+     $tempLotList[] = $tempHistoryLot[0];
 }
 
 /*
