@@ -198,7 +198,7 @@ If the user had preferences, determine lot to add to $tempLotList
 */
 if(!empty($tempPreferenceLots))
 {
-    print_r('Preference');
+    //print_r('Preference');
     foreach($tempPreferenceLots as $value)
     {
         $count = 0;
