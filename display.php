@@ -98,10 +98,10 @@
       </div>
       <div class="time">
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i><span id = 'SWT_drive'>? h ? min (? miles)</span></p>
+          <p><i class="fa fa-car"></i> <span id = 'SWT_drive'>? h ? min (? miles)</span></p>
         </div>
         <div class="to_building">
-          <p><i class="fa fa-child"></i><span id = 'SWT_walk'>? min (? mile)</span></p>
+          <p><i class="fa fa-child"></i> <span id = 'SWT_walk'>? min (? mile)</span></p>
         </div>
       </div>
     </div>
@@ -124,10 +124,10 @@
       </div>
       <div class="time">
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i><span id = 'MOU_drive'>? h ? min (? miles)</span></p>
+          <p><i class="fa fa-car"></i> <span id = 'MOU_drive'>? h ? min (? miles)</span></p>
         </div>
         <div class="to_building">
-          <p><i class="fa fa-child"></i><span id = 'MOU_walk'>? min (? mile)</span></p>
+          <p><i class="fa fa-child"></i> <span id = 'MOU_walk'>? min (? mile)</span></p>
         </div>
       </div>
     </div>
@@ -150,10 +150,10 @@
       </div>
       <div class="time">
         <div class="to_parking_lot">
-          <p><i class="fa fa-car"></i><span id = 'PP_drive'>? h ? min (? miles)</span></p>
+          <p><i class="fa fa-car"></i> <span id = 'PP_drive'>? h ? min (? miles)</span></p>
         </div>
         <div class="to_building">
-          <p><i class="fa fa-child"></i><span id = 'PP_walk'>? min (? mile)</span></p>
+          <p><i class="fa fa-child"></i> <span id = 'PP_walk'>? min (? mile)</span></p>
         </div>
       </div>
     </div>
