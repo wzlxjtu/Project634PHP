@@ -118,6 +118,23 @@ else
             }
     }
 }
+if(($timeHour <= 4 && $time_AM_PM == 'PM') || ($timeHour >= 6 && time_AM_PM == "AM")) 
+{  
+    $lotQuery = array('id' => '100');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+   /* $lotQuery = array('id' => '104');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '88');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '78');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '71');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '126');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '33');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); */
+}
 
 /*
 Iterate through lot list and remove any with construction.
