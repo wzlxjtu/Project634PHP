@@ -230,7 +230,7 @@ if(!empty($tempPreferenceLots))
 If the user had no preferences, append their parking permit lot.
 */
 else
-{
+{   //print_r('Preference empty. ');
     $lotQuery = array('id' => $Lots);
     $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_id' => false));
 }
@@ -241,7 +241,8 @@ Are we taking into account the building they want to visit?
 */
 $userHistory = $thisUser['history'];
 $tempHistoryLot = array();
-
+if(!empty($userHistory))
+{
 foreach($userHistory as $index => $historyValue)
 {   
     if($index == $Building)
@@ -263,6 +264,7 @@ foreach($userHistory as $index => $historyValue)
     }
     
 }
+}
 
 /*
 Add user history lot to $tempLotList
@@ -270,7 +272,7 @@ If the user has no history, append their parking permit lot.
 Otherwise, append historic parking lot.
 */
 if(empty($tempHistoryLot))
-{   
+{   //print_r('History empty. ');
     $lotQuery = array('id' => $Lots);
     $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_id' => false));
 }
