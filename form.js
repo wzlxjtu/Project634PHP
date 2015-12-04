@@ -27,14 +27,13 @@ function ReasoningResponse(ReasoningRequest) {
 			//document.getElementById("showserver").innerHTML = httpRequest.responseText;
             //alert(ReasoningRequest.responseText)
             var FormData = JSON.parse(ReasoningRequest.responseText);
-
-            for (var i = 0; i < FormData.length; i++) 
+/*            for (var i = 0; i < FormData.length; i++) 
             {
                 var lotName = FormData[i].name;
                 //alert(FormData.length)
              
                  //alert(FormData[i].name);
-            }
+            }*/
 			//document.getElementById("showserver").innerHTML = "Building: " + FormData.building + 
 			//    "<br>Lots: " + FormData.lots;
 			//alert(FormData.Building);

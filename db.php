@@ -2,7 +2,11 @@
 <html>
 <head>
   <title>Database Mangement</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <?php
@@ -54,6 +58,15 @@ https://docs.mongodb.org/manual/?_ga=1.77802384.540156671.1447120948
 $./mongod(enter)
 checkout dbpath
 
+
+// shutdown
+./mongod --shutdown
+
+// repair
+
+./mongod --repair
+
+
 $m = new MongoClient("mongodb:host:port");
 */
 //$m = new MongoClient( "mongodb://ohnarya-project634php-2006741:27017" );
@@ -64,24 +77,29 @@ $m = new MongoClient("mongodb:host:port");
 
 
 ?>
-
-<button id='truncatetable'>truncate collections.....</button>
-<button id='inserttable'>insert collections.....</button>
+<div class="container-fluid">
+<button id='truncatetable' type="button" class="btn btn-default">migrate down.....</button>
+<button id='inserttable' class='btn'>migrate up.....</button>
 <p id="notify1"></p>
 <p id="notify2"></p>
+</div>
 
 
 <script>
 $(document).ready(function() {
     $("#truncatetable").on('click', function(){
+    
         document.getElementById("notify1").innerHTML = "truncating collections........";
         document.getElementById("notify2").innerHTML = "";
         $.ajax({
                url: './migrate.php?mode=t',
                dataType: 'json',
                success: function(data){
-                   alert(data['id']);
-                    $("#notify2").html( "collections were truncated.");
+                   
+                    $("#notify2").html( "<span style='color:maroon'><b>collections were truncated.</b></span>");
+               },
+               error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    $("#notify2").html( "<span style='color:red'>"+ errorThrown + ": Error has been occured.</span>");
                }
             });
     });
@@ -94,41 +112,16 @@ $(document).ready(function() {
                dataType: 'json',
                success: function(data){
                   
-                    $("#notify2").html( "collections were inserted.");
+                    $("#notify2").html( "<span style='color:blue'><b>collections were inserted.</b></span>");
+               },
+               error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    $("#notify2").html( "<span style='color:red'>"+ errorThrown + ": Error has been occured.</span>");
                }
+               
             });
             
     });    
 });    
 </script>
-
-<?php
-
-$collection = $db->selectCollection("user"); /*select collection(table)*/
-
-if($collection != null){
-    
-    $q = array('id' => '1');   // query select * from user where 'id' =1;
-    
-    $curser = $collection->find($q); /*fetch data from the table above*/
-    
-    if($curser!=null)
-        echo "<p>Examples: select user '1''s history </p>";
-
-    foreach($curser as $user){
-        print_r($user['history']['1']);  
-    }
-}
-
-
-$c = array(
-    
-      ['id'=>'5','userid'=>'faculty','password'=>'test','active'=>true,'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>true]
-    );
-echo("<br>");
-var_dump($c);  
-//$collection->save($c);
-    
-    
-?>
+</html>
 

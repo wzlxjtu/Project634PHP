@@ -14,7 +14,7 @@ a, a:visited {
 }
 
 a:hover {
-    color: #80CBC4;
+    color: maroon;
     text-decoration: underline;
 }
 
@@ -25,7 +25,7 @@ header a, header a:hover, header a:visited {
 
 h1 {
     font-size: 16px;
-    color: #80CBC4;
+    color: maroon;
 }
 
 h2 {
@@ -56,7 +56,7 @@ header {
     padding-top: 9px;
     padding-right: 9px;
     padding-bottom: 9px;
-    background-color: #80CBC4;
+    background-color: maroon;
     text-align: left;
     color: white;
     font-size: 18pt;
@@ -89,12 +89,12 @@ nav {
 
 nav .btn {
     color: white;
-    background: #80CBC4;
+    background: maroon;
     border: solid white 1px;
 }
 
 nav .btn:hover {
-    color: #80CBC4;
+    color: maroon;
     background: white;
     border: solid white 1px;
 }
@@ -129,7 +129,7 @@ input {
     font-weight: normal;
     text-decoration: none;
     line-height: 1;
-    border: solid #80CBC4 1px;
+    border: solid maroon 1px;
     height: 34px;
     background-color: white;
     -ms-box-sizing: border-box;
@@ -159,16 +159,16 @@ aside #Meridiems {
 }
 
 aside .btn, section .btn {
-    color: #80CBC4;
+    color: maroon;
     background: white;
-    border: solid #80CBC4 1px;
+    border: solid maroon 1px;
     float: right;
 }
 
 aside .btn:hover, section .btn:hover {
     color: white;
-    background: #80CBC4;
-    border: solid #80CBC4 1px;
+    background: maroon;
+    border: solid maroon 1px;
 }
 
 #building_recommendation {
@@ -191,7 +191,7 @@ aside .btn:hover, section .btn:hover {
     -webkit-border-radius: 5;
     -moz-border-radius: 5;
     border-radius: 5px;
-    border: 1px solid #80CBC4;
+    border: 1px solid maroon;
     overflow: hidden;
 }
 
@@ -285,14 +285,14 @@ section {
 }
 
 .icon {
-    color: #80CBC4;
+    color: maroon;
     width: 300px;
     margin: 50px auto;
     text-align: center;
 }
 
 .page_title {
-    color: #80CBC4;
+    color: maroon;
     width: 300px;
     margin: 50px auto;
     text-align: center;
@@ -352,12 +352,12 @@ section .preferences .btn {
 /*}*/
 
 /*input[type='checkbox']:checked {*/
-/*    background-color: #80CBC4;*/
+/*    background-color: maroon;*/
 /*    content: "Yes";*/
 /*}*/
 
 /*input[type='checkbox']:hover {*/
-/*    box-shadow:0px 0px 10px #80CBC4;*/
+/*    box-shadow:0px 0px 10px maroon;*/
 /*}*/
 
 
@@ -425,7 +425,7 @@ input.cmn-toggle-round + label:after {
   transition: margin 0.4s;
 }
 input.cmn-toggle-round:checked + label:before {
-  background-color: #80CBC4;
+  background-color: maroon;
 }
 input.cmn-toggle-round:checked + label:after {
   margin-left: 36px;

@@ -13,4 +13,5 @@ Locations['Evans'] = {lat: 30.616393, lng: -96.338476};
 Locations['Annex'] = {lat: 30.615975, lng: -96.338023};
 Locations['Kyle'] = {lat: 30.610068, lng: -96.340472};
 Locations['Zachry'] = {lat: 30.619719, lng: -96.338887};
-Locations['MSC'] = {lat: 30.612315, lng: -96.341415}; 
+Locations['MSC'] = {lat: 30.612315, lng: -96.341415};
+Locations['Reed'] = {lat: 30.606086, lng: -96.345997};
