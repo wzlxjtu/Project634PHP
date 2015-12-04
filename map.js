@@ -87,7 +87,18 @@ function CalcTime(response, status) {
     document.getElementById("SWT_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[min_num]) + '</h2>';
     document.getElementById("MOU_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-1]) + '</h2>';
     document.getElementById("PP_text").innerHTML = '<h2>Parking Lot ' + eval(LotNames[FormData.length-2]) + '</h2>';
-    
+    document.getElementById("d1").innerHTML = '<p>Numbered parking permit required</p>';
+    document.getElementById("d2").innerHTML = '<p>Parking free after 5 PM</p>';
+    document.getElementById("d3").innerHTML = '<p>Parking free after 5 PM</p>';
+    if (!(FormData[min_num].well_lit)) document.getElementById("icon11").style.visibility = "hidden";
+    if (!(FormData[min_num].easy_exit)) document.getElementById("icon12").style.visibility = "hidden";
+    if (!(FormData[min_num].easy_parking)) document.getElementById("icon13").style.visibility = "hidden";
+    if (!(FormData[FormData.length-1].well_lit)) document.getElementById("icon21").style.visibility = "hidden";
+    if (!(FormData[FormData.length-1].easy_exit)) document.getElementById("icon22").style.visibility = "hidden";
+    if (!(FormData[FormData.length-1].easy_parking)) document.getElementById("icon23").style.visibility = "hidden";
+    if (!(FormData[FormData.length-2].well_lit)) document.getElementById("icon31").style.visibility = "hidden";
+    if (!(FormData[FormData.length-2].easy_exit)) document.getElementById("icon32").style.visibility = "hidden";
+    if (!(FormData[FormData.length-2].easy_parking)) document.getElementById("icon33").style.visibility = "hidden";
     ShowTimeInfo();
     
     SWT.onclick = function() {

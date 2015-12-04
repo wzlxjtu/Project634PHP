@@ -10,8 +10,8 @@ $parkinglot = array(
                      'night'  =>true,'summer' =>true,            'football'=>false,      'construction'=>false,
                      'closest'=>true,'popular'=>true,            'history' =>true,       'business'=>true,'diabled'=>true, 'active'      =>true,
                      'well_lit'=>true,'easy_exit'=>false,'easy_parking'=>false],
-                    
-                    ['id'     =>'100','name'   =>'parking lot 100','lat'     =>'30.607391','lng'         =>'-96.336986',
+                     
+                    ['id'     =>'100','name'   =>'parking lot 100','lat'     =>'30.607133','lng'         =>'-96.346695',
                      'night'  =>true ,'summer' =>true,             'football'=>false,      'construction'=>false,
                      'closest'=>true ,'popular'=>true,             'history' =>true,       'business'=>false, 'diabled'=>true,'active'      =>true,
                      'well_lit'=>true,'easy_exit'=>true,'easy_parking'=>false],  // business false
@@ -56,7 +56,8 @@ $building = array(
                 ['id'=>'4','name'=>'Kyle',   'full_name'=>'Kyle Field'    ,'lat'=>'30.610068','lng'=>'-96.340472','active'=>true],
                 ['id'=>'5','name'=>'Zachry', 'full_name'=>'Zachry Civil Engineering'  ,'lat'=>'30.619719','lng'=>'-96.338887','active'=>true],
                 ['id'=>'6','name'=>'MSC',    'full_name'=>'Memorial Student Center'   ,'lat'=>'30.612315','lng'=>'-96.341415','active'=>true],
-                ['id'=>'7','name'=>'ETB',    'full_name'=>'Emerging Technologies Building '   ,'lat'=>'30.622946','lng'=>'-96.338953','active'=>true],
+                ['id'=>'7','name'=>'ETB',    'full_name'=>'Emerging Technologies Building'   ,'lat'=>'30.622946','lng'=>'-96.338953','active'=>true],
+                ['id'=>'8','name'=>'Reed',    'full_name'=>'Reed Arena'   ,'lat'=>'30.606086','lng'=>'-96.345997','active'=>true],
             );       
     
 $user = array(
