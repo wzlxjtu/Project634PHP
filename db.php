@@ -88,6 +88,7 @@ $m = new MongoClient("mongodb:host:port");
 <script>
 $(document).ready(function() {
     $("#truncatetable").on('click', function(){
+    
         document.getElementById("notify1").innerHTML = "truncating collections........";
         document.getElementById("notify2").innerHTML = "";
         $.ajax({
@@ -95,7 +96,7 @@ $(document).ready(function() {
                dataType: 'json',
                success: function(data){
                    
-                    $("#notify2").html( "<span style='color:blue'><b>collections were truncated.</b></span>");
+                    $("#notify2").html( "<span style='color:maroon'><b>collections were truncated.</b></span>");
                },
                error: function(XMLHttpRequest, textStatus, errorThrown) { 
                     $("#notify2").html( "<span style='color:red'>"+ errorThrown + ": Error has been occured.</span>");

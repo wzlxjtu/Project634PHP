@@ -5,7 +5,6 @@ require 'preferences.php';
 if($_GET['mode']=="t"){
     $collections = $db->listCollections();
     foreach ($collections as $collection) {
-            echo $collection +"<br>";
             $collection->remove();
         }
     
