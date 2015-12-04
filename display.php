@@ -59,6 +59,7 @@
           <option value="Kyle">Kyle</option>
           <option value="Zachry">Zachry</option>
           <option value="MSC">MSC</option>
+          <option value="Reed">Reed Arena</option>
         </select>
         <input id="submit" type="button" class='btn' value="Submit" onclick="SubmitForm('reasoning.php')">
       </form>
@@ -88,13 +89,13 @@
           </h2>
         </div>
         <div class="icons">
-          <i class="fa fa-lightbulb-o"></i>
-          <i class="fa fa-reply"></i>
-          <i class="fa fa-smile-o"></i>
+          <i class="fa fa-lightbulb-o"  id = 'icon11'></i>
+          <i class="fa fa-reply" id = 'icon12'></i>
+          <i class="fa fa-smile-o" id = 'icon13'></i>
         </div>
       </div>
-      <div class="description">
-        <p>Numbered parking permit required</p>
+      <div class="description" id = 'd1'>
+        <p> </p>
       </div>
       <div class="time">
         <div class="to_parking_lot">
@@ -114,13 +115,13 @@
           </h2>
         </div>
         <div class="icons">
-          <i class="fa fa-lightbulb-o"></i>
-          <i class="fa fa-reply"></i>
-          <i class="fa fa-smile-o"></i>
+          <i class="fa fa-lightbulb-o" id = 'icon21'></i>
+          <i class="fa fa-reply" id = 'icon22'></i>
+          <i class="fa fa-smile-o" id = 'icon23'></i>
         </div>
       </div>
-      <div class="description">
-        <p>Parking free after 5 PM</p>
+      <div class="description" id = 'd2'>
+        <p> </p>
       </div>
       <div class="time">
         <div class="to_parking_lot">
@@ -140,13 +141,13 @@
           </h2>
         </div>
         <div class="icons">
-          <i class="fa fa-lightbulb-o"></i>
-          <i class="fa fa-reply"></i>
-          <i class="fa fa-smile-o"></i>
+          <i class="fa fa-lightbulb-o" id = 'icon31'></i>
+          <i class="fa fa-reply" id = 'icon32'></i>
+          <i class="fa fa-smile-o" id = 'icon33'></i>
         </div>
       </div>
-      <div class="description">
-        <p>Numbered parking permit required</p>
+      <div class="description" id = 'd3'>
+        <p> </p>
       </div>
       <div class="time">
         <div class="to_parking_lot">
