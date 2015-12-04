@@ -51,10 +51,10 @@ $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_
             If break: retrieve all "summer" records
             Else if summer:  check permit type
               If not night permit: retrieve all "summer" records
-              Else: ??????? Where can they park during the day/school year with their permit???
+              Else: Add other daytime options
 */
 
-if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "AM"))
+/*if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour < 6 && time_AM_PM == 'AM'))
 {  
     $lotQuery = array('id' => 'WCG');
     $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
@@ -70,12 +70,13 @@ if(($timeHour >= 4 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == "
     {
         $tempLotList[] = $value;
     }
-}
+}*/
 
-elseif(($timeHour >= 5 && $time_AM_PM == 'PM') || ($timeHour <= 6 && time_AM_PM == 'AM'))
-{
+if(($timeHour < 6 && $time_AM_PM == 'AM') || ($timeHour >= 5 && $time_AM_PM == 'PM'))
+{   //print_r('In if ');
     $lotQuery = array('night' => true);
     $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
+    
     foreach($cursor as $id => $value)
     {
         $tempLotList[] = $value;
