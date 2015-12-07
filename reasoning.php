@@ -90,7 +90,7 @@ if(($timeHour <= 4 && $time_AM_PM == 'PM') || ($timeHour >= 6 && $time_AM_PM == 
     $tempLotList[] = $collectionLots->findOne($lotQuery); */
 }
 if(($timeHour < 6 && $time_AM_PM == 'AM') || ($timeHour >= 5 && $time_AM_PM == 'PM'))
-{   print_r('In if ');
+{   
     $lotQuery = array('night' => true);
     $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
     
