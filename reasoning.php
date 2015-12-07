@@ -72,8 +72,25 @@ $tempLotList[] = $collectionLots->findOne($lotQuery);//, array('name'=> true, '_
     }
 }*/
 
+if(($timeHour <= 4 && $time_AM_PM == 'PM') || ($timeHour >= 6 && $time_AM_PM == "AM")) 
+{   
+    $lotQuery = array('id' => '100');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+   /* $lotQuery = array('id' => '104');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '88');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '78');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '71');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '126');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); 
+    $lotQuery = array('id' => '33');
+    $tempLotList[] = $collectionLots->findOne($lotQuery); */
+}
 if(($timeHour < 6 && $time_AM_PM == 'AM') || ($timeHour >= 5 && $time_AM_PM == 'PM'))
-{   //print_r('In if ');
+{   print_r('In if ');
     $lotQuery = array('night' => true);
     $cursor = $collectionLots->find($lotQuery);//, array('name'=> true, '_id' => false));
     
@@ -82,6 +99,8 @@ if(($timeHour < 6 && $time_AM_PM == 'AM') || ($timeHour >= 5 && $time_AM_PM == '
         $tempLotList[] = $value;
     }
 }
+
+
 else
 {
     $weekend = date('w', strtotime($date));
@@ -118,23 +137,6 @@ else
                 }
             }
     }
-}
-if(($timeHour <= 4 && $time_AM_PM == 'PM') || ($timeHour >= 6 && time_AM_PM == "AM")) 
-{  
-    $lotQuery = array('id' => '100');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); 
-   /* $lotQuery = array('id' => '104');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); 
-    $lotQuery = array('id' => '88');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); 
-    $lotQuery = array('id' => '78');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); 
-    $lotQuery = array('id' => '71');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); 
-    $lotQuery = array('id' => '126');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); 
-    $lotQuery = array('id' => '33');
-    $tempLotList[] = $collectionLots->findOne($lotQuery); */
 }
 
 /*
